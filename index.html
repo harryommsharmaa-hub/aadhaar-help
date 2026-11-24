@@ -3,82 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="google-site-verification" content="TqPyI2PHmgTRkuaWkBj7pnc-vDZsWiSk9dU8MSyWaJ0">
-
-<title>Aadhaar Sevaa - Aadhaar Help & Guidance</title>
-<meta name="description" content="Understand Aadhaar suspended, deactivated, authentication, update and other Aadhaar problems. Get guidance and official UIDAI links.">
+<meta name="description" content="Aadhaar Sevaa provides independent guidance for suspended or deactivated Aadhaar, authentication issues, update rejections and official UIDAI support.">
 <meta name="theme-color" content="#e94f91">
 <link rel="canonical" href="https://harryommsharmaa-hub.github.io/aadhaar-help/">
+<title>Aadhaar Sevaa | Aadhaar Help & Guidance</title>
 
 <style>
 :root{
   --pink:#e94f91;
-  --dark:#a92761;
+  --dark:#a92760;
   --light:#fff0f6;
   --pale:#fff8fb;
   --text:#34232c;
-  --muted:#765d69;
+  --muted:#765f69;
   --white:#fff;
-  --shadow:0 8px 28px rgba(174,42,101,.12);
+  --shadow:0 12px 35px rgba(180,55,112,.12);
 }
-*{box-sizing:border-box;scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
 body{
-  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--pale);
   color:var(--text);
+  background:var(--pale);
   line-height:1.65;
 }
 button,a{font:inherit}
-a{color:var(--dark)}
+a{color:var(--dark);text-decoration:none}
 button{cursor:pointer}
 .hidden{display:none!important}
 
-/* WELCOME */
+/* LANGUAGE WELCOME PAGE */
 #welcome{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:25px;
-  background:linear-gradient(145deg,#fff7fb,#ffd9e9,#fff);
   text-align:center;
+  background:linear-gradient(135deg,#fff7fb,#ffdce9,#fff);
+  position:relative;
+  overflow:hidden;
 }
 .welcome-card{
-  width:min(100%,650px);
-  background:#ffffffdc;
-  padding:38px 22px;
-  border-radius:28px;
+  width:min(560px,100%);
+  background:rgba(255,255,255,.88);
+  border:1px solid #ffd0e2;
+  border-radius:30px;
+  padding:38px 24px;
   box-shadow:var(--shadow);
-  border:1px solid #fff;
+  position:relative;
+  z-index:2;
+}
+.brand-mark{
+  width:88px;height:88px;
+  margin:0 auto 17px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#ffe2ee;
+  color:var(--pink);
+  font-size:43px;
+  border:2px solid #f7a8c9;
 }
 .welcome-card h1{
   color:var(--dark);
-  font-size:clamp(27px,6vw,39px);
-  margin:0 0 15px;
+  font-size:clamp(25px,6vw,36px);
+  margin-bottom:8px;
   white-space:nowrap;
 }
-.fingerprint{
-  width:92px;
-  height:92px;
-  margin:8px auto 15px;
-  color:var(--pink);
-}
-.welcome-card h2{color:var(--dark);margin:8px 0 20px}
+.welcome-card p{color:var(--muted);margin-bottom:24px}
 .language-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
-  max-width:440px;
-  margin:auto;
 }
 .language-btn{
-  border:1px solid #f2a5c5;
-  background:white;
+  border:1px solid #f2b5cf;
+  background:#fff;
   color:var(--dark);
+  padding:14px 10px;
   border-radius:14px;
-  padding:13px;
   font-weight:bold;
   transition:.25s;
 }
@@ -86,78 +89,77 @@ button{cursor:pointer}
   background:var(--pink);
   color:white;
   transform:translateY(-3px);
+  box-shadow:0 8px 20px #e94f9140;
 }
+.welcome-note{font-size:12px;margin-top:20px;color:#90727f}
 
-/* REVEAL */
+/* CIRCULAR REVEAL */
 #reveal{
   position:fixed;
   z-index:10000;
-  width:20px;
-  height:20px;
+  width:20px;height:20px;
   border-radius:50%;
   background:var(--pink);
-  transform:scale(0);
   pointer-events:none;
+  transform:scale(0);
 }
-#reveal.go{animation:circleReveal .8s ease-in-out forwards}
+#reveal.go{animation:circleReveal .75s ease-in-out forwards}
 @keyframes circleReveal{
   to{transform:scale(180);opacity:0}
 }
 
 /* HEADER */
 header{
+  background:white;
   position:sticky;
   top:0;
   z-index:1000;
-  background:#fff;
-  box-shadow:0 3px 15px #a9276114;
+  box-shadow:0 3px 18px #a9276010;
 }
-.topbar{
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
-  max-width:1200px;
-  margin:auto;
-  padding:10px 17px;
+  gap:15px;
 }
-.brand{
-  color:var(--dark);
-  font-size:21px;
+.logo{
+  font-size:22px;
   font-weight:800;
-  text-decoration:none;
+  color:var(--dark);
   white-space:nowrap;
 }
-.nav-links{
+.logo span{color:var(--pink)}
+.top-nav{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:17px;
 }
-.nav-links a{
-  text-decoration:none;
-  color:var(--text);
-  font-size:14px;
-  font-weight:bold;
+.top-nav a{
+  font-size:13px;
+  font-weight:700;
+  color:#59434e;
 }
-.nav-links a:hover{color:var(--pink)}
-.header-actions{display:flex;align-items:center;gap:9px}
-.menu-btn,.lang-change{
+.top-nav a:hover{color:var(--pink)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.lang-change,.menu-btn{
   border:0;
+  border-radius:10px;
+  padding:10px 12px;
   background:var(--light);
   color:var(--dark);
-  padding:10px 13px;
-  border-radius:11px;
   font-weight:bold;
 }
-.menu-btn{font-size:20px}
-.menu-btn:hover,.lang-change:hover{background:#ffd3e5}
+.menu-btn{font-size:22px;line-height:1}
 
 /* SIDE MENU */
 .overlay{
   position:fixed;
   inset:0;
-  background:#24131db0;
-  z-index:1998;
+  z-index:1100;
+  background:#24121d80;
   opacity:0;
   visibility:hidden;
   transition:.3s;
@@ -165,273 +167,268 @@ header{
 .overlay.show{opacity:1;visibility:visible}
 .side-menu{
   position:fixed;
-  top:0;
-  right:-330px;
+  z-index:1200;
+  top:0;right:-330px;
   width:min(310px,85vw);
   height:100vh;
-  overflow-y:auto;
-  z-index:1999;
   background:white;
-  padding:20px;
-  box-shadow:-8px 0 30px #0002;
-  transition:right .35s ease;
+  padding:22px;
+  overflow-y:auto;
+  box-shadow:-10px 0 30px #0002;
+  transition:right .3s ease;
 }
 .side-menu.open{right:0}
 .side-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  margin-bottom:20px;
   color:var(--dark);
-  font-size:21px;
-  font-weight:bold;
-  margin-bottom:15px;
 }
 .close-menu{
-  border:0;
-  background:var(--light);
+  border:0;background:var(--light);
   color:var(--dark);
-  font-size:25px;
-  border-radius:10px;
-  width:40px;height:40px;
+  width:38px;height:38px;
+  border-radius:50%;font-size:22px;
 }
 .side-menu a{
   display:block;
-  text-decoration:none;
-  color:var(--text);
-  padding:11px 12px;
+  padding:12px 10px;
+  margin:4px 0;
   border-radius:10px;
-  border-bottom:1px solid #f8e4ed;
+  color:#503b45;
   font-weight:600;
 }
 .side-menu a:hover{background:var(--light);color:var(--dark)}
-.menu-label{
-  color:var(--pink);
-  font-size:12px;
-  font-weight:bold;
-  margin:18px 10px 5px;
-  text-transform:uppercase;
-}
 
-/* COMMON */
+/* GENERAL SECTIONS */
 .container{width:min(1120px,92%);margin:auto}
-section{padding:55px 0;scroll-margin-top:78px}
-.section-title{
-  text-align:center;
-  color:var(--dark);
-  font-size:clamp(25px,5vw,34px);
-  margin:0 0 8px;
-}
-.section-subtitle{
-  text-align:center;
-  color:var(--muted);
-  max-width:720px;
-  margin:0 auto 28px;
-}
+section{padding:68px 0;scroll-margin-top:85px}
+.section-title{text-align:center;margin-bottom:32px}
+.section-title h2{font-size:clamp(25px,5vw,34px);color:var(--dark);margin-bottom:8px}
+.section-title p{color:var(--muted);max-width:700px;margin:auto}
 .hero{
-  background:linear-gradient(135deg,#ffe5ef,#fff,#ffd5e6);
-  padding:65px 0;
-  text-align:center;
+  padding:75px 0 65px;
+  background:linear-gradient(135deg,#ffe6f0,#fff8fb 60%,#ffd6e7);
+}
+.hero-content{text-align:center;max-width:850px;margin:auto}
+.hero-tag{
+  display:inline-block;
+  padding:7px 15px;
+  background:#fff;
+  border:1px solid #f4bfd4;
+  color:var(--dark);
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:17px;
 }
 .hero h1{
-  color:var(--dark);
-  font-size:clamp(30px,6vw,46px);
+  color:#8e2453;
+  font-size:clamp(31px,7vw,49px);
   line-height:1.2;
-  margin:0 0 15px;
+  margin-bottom:17px;
 }
-.hero p{max-width:720px;margin:0 auto 23px;color:#624451}
-.btn{
+.hero p{color:#674b59;font-size:16px;max-width:700px;margin:0 auto 25px}
+.hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.primary-btn,.secondary-btn{
   display:inline-block;
-  border:0;
-  background:var(--pink);
-  color:white;
-  text-decoration:none;
-  padding:12px 20px;
   border-radius:12px;
+  padding:13px 20px;
   font-weight:bold;
-  margin:5px;
   transition:.2s;
 }
-.btn:hover{background:var(--dark);transform:translateY(-2px)}
-.btn.secondary{background:white;color:var(--dark);border:1px solid #f0a0c2}
-
-/* CARDS */
-.card-grid{
+.primary-btn{background:var(--pink);color:white}
+.primary-btn:hover{background:var(--dark);transform:translateY(-2px)}
+.secondary-btn{background:white;color:var(--dark);border:1px solid #f1b4ce}
+.notice{
+  margin-top:30px;
+  padding:15px 18px;
+  border-radius:14px;
+  background:#fff;
+  border-left:4px solid var(--pink);
+  color:#684c59;
+  text-align:left;
+  font-size:14px;
+}
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 .card{
   background:white;
-  border:1px solid #f8dce8;
+  border:1px solid #f5d9e5;
+  padding:23px;
   border-radius:18px;
-  padding:22px;
   box-shadow:var(--shadow);
+  transition:.25s;
 }
-.card h3{color:var(--dark);margin:0 0 8px}
-.card p{color:var(--muted);margin:0 0 12px}
-.card-icon{font-size:30px;margin-bottom:8px}
-
-/* PROBLEM GUIDES */
-.problem-card{
+.card:hover{transform:translateY(-4px)}
+.card-icon{
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  background:var(--light);
+  border-radius:14px;
+  color:var(--pink);
+  font-size:24px;
+  margin-bottom:13px;
+}
+.card h3{color:var(--dark);font-size:18px;margin-bottom:9px}
+.card p{font-size:14px;color:var(--muted)}
+.soft-section{background:#fff1f7}
+.info-box{
   background:white;
-  border:1px solid #f3d5e2;
-  border-radius:17px;
+  border:1px solid #f4d3e1;
+  border-radius:16px;
+  padding:22px;
+  margin:17px 0;
+}
+.info-box h3{color:var(--dark);margin-bottom:9px}
+.info-box p,.info-box li{color:var(--muted);font-size:14px}
+.info-box ul{padding-left:21px;margin-top:8px}
+.info-box li{margin:6px 0}
+.steps{counter-reset:step}
+.step{
+  position:relative;
+  padding:17px 18px 17px 60px;
   margin:13px 0;
-  overflow:hidden;
-  box-shadow:0 5px 18px #a927610c;
-}
-.problem-card summary{
-  cursor:pointer;
-  padding:17px 19px;
-  color:var(--dark);
-  font-weight:bold;
-  font-size:17px;
-  list-style:none;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-.problem-card summary::-webkit-details-marker{display:none}
-.problem-card summary:after{content:"＋";font-size:22px}
-.problem-card[open] summary:after{content:"−"}
-.problem-content{padding:0 20px 20px;color:#5c4651}
-.problem-content h4{color:var(--dark);margin:15px 0 5px}
-.problem-content li{margin:7px 0}
-.featured-problem{
-  border:2px solid #ed8bb5;
-  background:linear-gradient(120deg,#fff,#fff3f8);
-}
-.notice{
-  background:#fff0f6;
-  border-left:5px solid var(--pink);
-  border-radius:12px;
-  padding:18px;
-  margin:22px 0;
-}
-
-/* FAQ */
-.faq-item{
   background:white;
-  border:1px solid #f4d9e5;
-  border-radius:13px;
-  padding:15px 18px;
-  margin:10px 0;
+  border:1px solid #f4d3e1;
+  border-radius:14px;
 }
-.faq-item summary{cursor:pointer;color:var(--dark);font-weight:bold}
-.faq-item p{color:var(--muted);margin-bottom:0}
-
-/* FOOTER */
-footer{
-  background:#3b2430;
-  color:white;
-  padding:35px 0 20px;
-  margin-top:25px;
+.step:before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  left:17px;top:17px;
+  width:29px;height:29px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--pink);
+  color:white;font-weight:bold;
 }
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:25px;
+.step h3{font-size:16px;color:var(--dark)}
+.step p{font-size:14px;color:var(--muted);margin-top:4px}
+.official-links{
+  display:flex;gap:10px;flex-wrap:wrap;margin-top:15px
 }
-footer h3,footer h4{color:#ffb8d4}
-footer a{color:#ffe0ed;display:block;text-decoration:none;margin:7px 0}
-footer a:hover{text-decoration:underline}
-.footer-bottom{
-  text-align:center;
-  border-top:1px solid #ffffff30;
-  padding-top:17px;
-  margin-top:25px;
+.official-links a{
+  display:inline-block;
+  background:var(--light);
+  padding:10px 13px;
+  border-radius:10px;
   font-size:13px;
+  font-weight:bold;
+}
+.faq-list{max-width:850px;margin:auto}
+details{
+  background:white;
+  border:1px solid #f2d4e1;
+  border-radius:13px;
+  margin:11px 0;
+  padding:16px 18px;
+}
+summary{
+  cursor:pointer;
+  font-weight:bold;
+  color:var(--dark);
+}
+details p{color:var(--muted);font-size:14px;padding-top:12px}
+.contact-card{
+  text-align:center;
+  background:linear-gradient(135deg,#ffe6f0,#fff);
+  padding:30px 20px;
+  border:1px solid #f3c6d9;
+  border-radius:20px;
+}
+footer{
+  background:#3c2430;
+  color:#fceaf1;
+  padding:35px 0 20px;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;
+  gap:25px;flex-wrap:wrap;
+}
+footer h3{color:#ffb9d4;margin-bottom:10px}
+footer p,footer a{font-size:13px;color:#f4dce7}
+.footer-links{display:flex;gap:12px;flex-wrap:wrap}
+.copyright{
+  border-top:1px solid #ffffff25;
+  margin-top:25px;padding-top:17px;
+  text-align:center;font-size:12px;color:#e7c8d6;
 }
 #backTop{
-  position:fixed;
-  bottom:20px;
-  right:18px;
-  width:47px;
-  height:47px;
-  border:0;
-  border-radius:50%;
-  color:white;
-  background:var(--pink);
-  font-size:22px;
-  box-shadow:var(--shadow);
-  display:none;
-  z-index:900;
+  position:fixed;right:18px;bottom:18px;
+  width:45px;height:45px;
+  border:0;border-radius:50%;
+  background:var(--pink);color:white;
+  font-size:22px;box-shadow:var(--shadow);
+  display:none;z-index:900;
 }
 #backTop.show{display:block}
-.small-note{font-size:13px;color:var(--muted)}
-@media(max-width:850px){
-  .nav-links{display:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .top-nav{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:480px){
-  .welcome-card{padding:30px 14px}
-  .welcome-card h1{font-size:26px}
-  .language-grid{gap:9px}
-  .language-btn{padding:12px 7px}
-  section{padding:42px 0}
-  .hero{padding:48px 0}
-  .brand{font-size:18px}
-  .lang-change{font-size:12px;padding:9px}
+@media(max-width:600px){
+  .header-inner{padding:11px 13px}
+  .logo{font-size:19px}
+  .grid{grid-template-columns:1fr}
+  section{padding:52px 0}
+  .hero{padding:58px 0 48px}
+  .welcome-card{padding:32px 17px}
+  .welcome-card h1{font-size:25px}
+  .language-btn{padding:13px 7px;font-size:14px}
 }
 </style>
 </head>
 
 <body>
 
+<div id="reveal"></div>
+
+<!-- LANGUAGE SELECTION -->
 <div id="welcome">
   <div class="welcome-card">
+    <div class="brand-mark">◎</div>
     <h1>Welcome to Aadhaar Sevaa</h1>
+    <p id="welcomeSubtitle">Independent Aadhaar Help & Guidance</p>
+    <h3 id="languageHeading" style="color:#a92760;margin-bottom:15px">Select Your Language</h3>
 
-    <svg class="fingerprint" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
-      <path d="M50 10C27 10 12 27 12 49"/>
-      <path d="M50 19C32 19 21 32 21 49"/>
-      <path d="M50 28C37 28 30 37 30 50"/>
-      <path d="M50 37C43 37 39 42 39 50"/>
-      <path d="M50 10C73 10 88 27 88 49"/>
-      <path d="M50 19C68 19 79 32 79 49"/>
-      <path d="M50 28C63 28 70 37 70 50"/>
-      <path d="M50 37C57 37 61 42 61 50"/>
-      <path d="M12 54C13 75 27 89 43 92"/>
-      <path d="M21 55C22 72 31 82 43 85"/>
-      <path d="M30 56C31 68 37 75 46 78"/>
-      <path d="M88 54C87 75 73 89 57 92"/>
-      <path d="M79 55C78 72 69 82 57 85"/>
-      <path d="M70 56C69 68 63 75 54 78"/>
-      <path d="M50 46V61C50 72 48 80 50 91"/>
-    </svg>
-
-    <h2>Select Your Language</h2>
     <div class="language-grid">
-      <button class="language-btn" onclick="chooseLanguage('hi',this)">हिन्दी</button>
       <button class="language-btn" onclick="chooseLanguage('en',this)">English</button>
+      <button class="language-btn" onclick="chooseLanguage('hi',this)">हिन्दी</button>
       <button class="language-btn" onclick="chooseLanguage('gu',this)">ગુજરાતી</button>
       <button class="language-btn" onclick="chooseLanguage('mr',this)">मराठी</button>
       <button class="language-btn" onclick="chooseLanguage('bn',this)">বাংলা</button>
       <button class="language-btn" onclick="chooseLanguage('ta',this)">தமிழ்</button>
     </div>
-    <p class="small-note">Independent Aadhaar information and guidance website</p>
+    <div class="welcome-note">This is an independent information website. Not an official UIDAI website.</div>
   </div>
 </div>
 
-<div id="reveal"></div>
-
+<!-- MAIN WEBSITE -->
 <div id="website" class="hidden">
 
 <header>
-  <div class="topbar">
-    <a href="#home" class="brand">♡ Aadhaar Sevaa</a>
+  <div class="header-inner">
+    <a class="logo" href="#home">Aadhaar <span>Sevaa</span></a>
 
-    <nav class="nav-links">
-      <a href="#home" data-t="home">Home</a>
-      <a href="#problems" data-t="problems">Problems</a>
-      <a href="#services" data-t="services">Services</a>
-      <a href="#statehelp" data-t="state">State Help</a>
-      <a href="#faq" data-t="faq">FAQ</a>
-      <a href="#contact" data-t="contact">Contact</a>
+    <nav class="top-nav">
+      <a href="#home" data-i="home">Home</a>
+      <a href="#problems" data-i="problems">Problems</a>
+      <a href="#suspended" data-i="suspended">Suspended Aadhaar</a>
+      <a href="#services" data-i="services">Services</a>
+      <a href="#faq" data-i="faq">FAQ</a>
+      <a href="#contact" data-i="contact">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <button class="lang-change" onclick="backToLanguages()" data-t="changeLanguage">Language</button>
+      <button class="lang-change" onclick="showLanguagePage()" id="changeLanguage">Language</button>
       <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
     </div>
   </div>
@@ -441,215 +438,170 @@ footer a:hover{text-decoration:underline}
 
 <aside class="side-menu" id="sideMenu">
   <div class="side-head">
-    <span>Aadhaar Sevaa</span>
+    <h2 id="menuTitle">Explore Menu</h2>
     <button class="close-menu" onclick="closeMenu()" aria-label="Close menu">×</button>
   </div>
-
-  <div class="menu-label" data-t="mainMenu">Main Menu</div>
-  <a href="#home" onclick="closeMenu()" data-t="home">Home</a>
-  <a href="#problems" onclick="closeMenu()" data-t="problems">Aadhaar Problem Help</a>
-  <a href="#suspended" onclick="closeMenu()" data-t="suspended">Suspended / Deactivated Aadhaar</a>
-  <a href="#services" onclick="closeMenu()" data-t="services">Services</a>
-  <a href="#statehelp" onclick="closeMenu()" data-t="state">State-wise Help</a>
-  <a href="#faq" onclick="closeMenu()" data-t="faq">FAQ</a>
-
-  <div class="menu-label" data-t="information">Information</div>
-  <a href="#about" onclick="closeMenu()" data-t="about">About Us</a>
-  <a href="#privacy" onclick="closeMenu()" data-t="privacy">Privacy Policy</a>
-  <a href="#disclaimer" onclick="closeMenu()" data-t="disclaimer">Disclaimer</a>
-  <a href="#contact" onclick="closeMenu()" data-t="contact">Contact Us</a>
-
-  <div class="menu-label" data-t="officialLinks">Official Links</div>
-  <a href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener">MyAadhaar ↗</a>
-  <a href="https://uidai.gov.in/" target="_blank" rel="noopener">UIDAI ↗</a>
-  <a href="https://bhuvan-app3.nrsc.gov.in/aadhaar/" target="_blank" rel="noopener">Aadhaar Centre Locator ↗</a>
+  <a href="#home" onclick="closeMenu()" data-i="home">Home</a>
+  <a href="#problems" onclick="closeMenu()" data-i="problems">Aadhaar Problem Help</a>
+  <a href="#suspended" onclick="closeMenu()" data-i="suspended">Suspended / Deactivated Aadhaar</a>
+  <a href="#services" onclick="closeMenu()" data-i="services">Other Aadhaar Problems</a>
+  <a href="#official" onclick="closeMenu()" data-i="official">Official Services</a>
+  <a href="#state-help" onclick="closeMenu()" data-i="state">State-wise Help</a>
+  <a href="#faq" onclick="closeMenu()" data-i="faq">FAQ</a>
+  <a href="#about" onclick="closeMenu()" data-i="about">About Us</a>
+  <a href="#privacy" onclick="closeMenu()" data-i="privacy">Privacy Policy</a>
+  <a href="#disclaimer" onclick="closeMenu()" data-i="disclaimer">Disclaimer</a>
+  <a href="#contact" onclick="closeMenu()" data-i="contact">Contact Us</a>
 </aside>
 
-<main>
-
+<!-- HOME -->
 <section class="hero" id="home">
-  <div class="container">
-    <h1 data-t="heroTitle">Aadhaar Problems? Find the Right Guidance.</h1>
-    <p data-t="heroText">Understand common Aadhaar problems and learn how to contact official UIDAI support.</p>
-    <a href="#problems" class="btn" data-t="findHelp">Find Problem Help</a>
-    <a href="#services" class="btn secondary" data-t="exploreServices">Explore Services</a>
+  <div class="container hero-content">
+    <div class="hero-tag" data-i="tag">Your Independent Aadhaar Help Guide</div>
+    <h1 data-i="heroTitle">Facing an Aadhaar Problem?</h1>
+    <p data-i="heroText">Understand common Aadhaar issues, learn the official steps to seek help and find the right UIDAI support channels.</p>
+    <div class="hero-buttons">
+      <a href="#suspended" class="primary-btn" data-i="heroBtn1">Suspended Aadhaar Help</a>
+      <a href="#services" class="secondary-btn" data-i="heroBtn2">Explore All Problems</a>
+    </div>
+    <div class="notice">
+      <strong data-i="important">Important:</strong>
+      <span data-i="noticeText">Aadhaar Sevaa is an independent information website. We cannot check Aadhaar status, access UIDAI records or reactivate an Aadhaar number.</span>
+    </div>
   </div>
 </section>
 
+<!-- PROBLEMS -->
 <section id="problems">
   <div class="container">
-    <h2 class="section-title" data-t="problemTitle">Aadhaar Problem Help</h2>
-    <p class="section-subtitle" data-t="problemSubtitle">Choose your problem to understand the next steps.</p>
-
-    <div class="notice">
-      <strong data-t="important">Important:</strong>
-      <span data-t="importantText">This website provides general guidance. Only UIDAI can confirm your Aadhaar record or status.</span>
+    <div class="section-title">
+      <h2 data-i="problemTitle">Aadhaar Problem Help</h2>
+      <p data-i="problemSub">Find guidance for common Aadhaar-related difficulties.</p>
     </div>
 
-    <div id="problemCards"></div>
-  </div>
-</section>
-
-<section id="suspended" style="background:#fff0f6">
-  <div class="container">
-    <h2 class="section-title" data-t="suspendedTitle">Suspended / Deactivated Aadhaar</h2>
-    <p class="section-subtitle" data-t="suspendedSubtitle">Understand the issue and follow official channels for help.</p>
-
-    <div class="card-grid">
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">⚠</div>
+        <h3 data-i="p1">Suspended / Deactivated Aadhaar</h3>
+        <p data-i="p1t">Understand what to do if your Aadhaar authentication or status is showing a problem.</p>
+        <a href="#suspended" data-i="readMore">Read guidance →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3 data-i="p2">Authentication Problem</h3>
+        <p data-i="p2t">Guidance for biometric, OTP or identity authentication failures.</p>
+        <a href="#authentication" data-i="readMore">Read guidance →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">📄</div>
+        <h3 data-i="p3">Duplicate Application Rejection</h3>
+        <p data-i="p3t">What to do if a new Aadhaar application is rejected as a duplicate.</p>
+        <a href="#duplicate" data-i="readMore">Read guidance →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">✍</div>
+        <h3 data-i="p4">Name or Document Mismatch</h3>
+        <p data-i="p4t">Understand document mismatch and correction-related issues.</p>
+        <a href="#mismatch" data-i="readMore">Read guidance →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3 data-i="p5">Update Rejection</h3>
+        <p data-i="p5t">Learn what you can do when an Aadhaar update request is rejected.</p>
+        <a href="#update" data-i="readMore">Read guidance →</a>
+      </div>
       <div class="card">
         <div class="card-icon">🔎</div>
-        <h3 data-t="whatTitle">What does it mean?</h3>
-        <p data-t="whatText">A message saying suspended or deactivated needs to be checked with UIDAI. Do not assume the exact reason from one error message.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📋</div>
-        <h3 data-t="checkTitle">Check your case</h3>
-        <p data-t="checkText">Review any official communication and contact UIDAI to confirm the actual status and required action.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">☎️</div>
-        <h3 data-t="supportTitle">Get official support</h3>
-        <p data-t="supportText">Call UIDAI helpline 1947 or use the official UIDAI website for guidance.</p>
+        <h3 data-i="p6">SRN / URN / EID Status</h3>
+        <p data-i="p6t">Find official ways to check the status of a request or complaint.</p>
+        <a href="#official" data-i="readMore">Read guidance →</a>
       </div>
     </div>
-
-    <div class="notice">
-      <strong data-t="remember">Remember:</strong>
-      <span data-t="safetyText">Aadhaar Sevaa cannot check, activate, restore or change anyone's Aadhaar. Do not share your Aadhaar number, OTP or documents on this website.</span>
-    </div>
-
-    <a class="btn" href="https://uidai.gov.in/" target="_blank" rel="noopener" data-t="visitUidai">Visit Official UIDAI Website ↗</a>
-    <a class="btn secondary" href="tel:1947" data-t="callUidai">Call UIDAI 1947</a>
   </div>
 </section>
 
+<!-- SUSPENDED AADHAAR -->
+<section class="soft-section" id="suspended">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-i="sTitle">Suspended or Deactivated Aadhaar</h2>
+      <p data-i="sSub">Important information and safe steps to seek official assistance.</p>
+    </div>
+
+    <div class="info-box">
+      <h3 data-i="meaningTitle">What does it mean?</h3>
+      <p data-i="meaningText">If you are told that your Aadhaar is suspended, deactivated or not usable, it is important to confirm the exact status and reason directly with UIDAI. Different error messages can have different meanings. Do not assume that every authentication failure means Aadhaar has been deactivated.</p>
+    </div>
+
+    <div class="info-box">
+      <h3 data-i="differenceTitle">Suspended vs. Deactivated</h3>
+      <p data-i="differenceText">People may use these terms differently. The exact status and applicable process must be confirmed by UIDAI. An authentication failure alone does not prove that an Aadhaar number is suspended or deactivated.</p>
+    </div>
+
+    <div class="info-box">
+      <h3 data-i="possibleTitle">Possible reasons to ask UIDAI about</h3>
+      <ul>
+        <li data-i="reason1">A record or verification issue that requires review.</li>
+        <li data-i="reason2">An identity or demographic information mismatch.</li>
+        <li data-i="reason3">A technical or authentication-related issue.</li>
+        <li data-i="reason4">A request that needs additional documents or clarification.</li>
+      </ul>
+      <p data-i="reasonNote">These are examples of issues to discuss with UIDAI, not confirmed reasons for every suspended Aadhaar case.</p>
+    </div>
+
+    <h3 style="color:#a92760;margin:25px 0 15px" data-i="stepsTitle">What should you do?</h3>
+    <div class="steps">
+      <div class="step">
+        <h3 data-i="step1Title">Contact UIDAI</h3>
+        <p data-i="step1Text">Call the official helpline 1947 or use the official UIDAI website to ask about your exact Aadhaar status.</p>
+      </div>
+      <div class="step">
+        <h3 data-i="step2Title">Ask for the exact reason</h3>
+        <p data-i="step2Text">Explain the error message you received and ask which documents or process are required in your case.</p>
+      </div>
+      <div class="step">
+        <h3 data-i="step3Title">Keep your reference number</h3>
+        <p data-i="step3Text">Keep your complaint number, SRN, URN or EID safely for future follow-up. Never share OTPs or passwords.</p>
+      </div>
+      <div class="step">
+        <h3 data-i="step4Title">Visit an authorised Aadhaar centre if advised</h3>
+        <p data-i="step4Text">Use the official centre locator and follow the instructions given by UIDAI. Carry only the documents requested through official channels.</p>
+      </div>
+      <div class="step">
+        <h3 data-i="step5Title">Follow up on your complaint</h3>
+        <p data-i="step5Text">Check your complaint or request status through the official UIDAI portal. There is no guaranteed restoration time for every case.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROBLEMS -->
 <section id="services">
   <div class="container">
-    <h2 class="section-title" data-t="servicesTitle">Useful Aadhaar Services</h2>
-    <p class="section-subtitle" data-t="servicesSubtitle">Access official portals and useful resources.</p>
-    <div class="card-grid" id="serviceCards"></div>
-  </div>
-</section>
-
-<section id="statehelp" style="background:#fff0f6">
-  <div class="container">
-    <h2 class="section-title" data-t="stateTitle">State-wise Aadhaar Help</h2>
-    <p class="section-subtitle" data-t="stateText">Find an authorised Aadhaar centre using the official locator. You can search by state, district or PIN code where available.</p>
-    <div class="card" style="text-align:center">
-      <div class="card-icon">📍</div>
-      <h3 data-t="findCentre">Find an Aadhaar Centre</h3>
-      <p data-t="centreText">Use the official UIDAI centre locator to find current centre details. Centre availability and services may vary.</p>
-      <a class="btn" href="https://bhuvan-app3.nrsc.gov.in/aadhaar/" target="_blank" rel="noopener" data-t="openLocator">Open Centre Locator ↗</a>
+    <div class="section-title">
+      <h2 data-i="otherTitle">Other Aadhaar Problems</h2>
+      <p data-i="otherSub">Basic guidance for common application and update issues.</p>
     </div>
-  </div>
-</section>
 
-<section id="faq">
-  <div class="container">
-    <h2 class="section-title" data-t="faqTitle">Frequently Asked Questions</h2>
-    <div id="faqList"></div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <h2 class="section-title" data-t="aboutTitle">About Aadhaar Sevaa</h2>
-    <div class="card">
-      <p data-t="aboutText">Aadhaar Sevaa is an independent information website created to help people understand common Aadhaar-related issues and find official support resources.</p>
+    <div class="info-box" id="authentication">
+      <h3 data-i="authTitle">1. Aadhaar Authentication Problem</h3>
+      <p data-i="authText">If fingerprint, iris or OTP authentication fails, check that the details entered are correct and that the relevant device or service is working. Ask the service provider for the exact error code. If the issue continues, contact UIDAI through official channels.</p>
     </div>
-  </div>
-</section>
 
-<section id="privacy" style="background:#fff0f6">
-  <div class="container">
-    <h2 class="section-title" data-t="privacyTitle">Privacy Policy</h2>
-    <div class="card">
-      <p data-t="privacyText">This website does not ask visitors to submit Aadhaar numbers, OTPs, passwords or identity documents. Do not share sensitive personal information through public forms or messages. External official websites have their own privacy policies.</p>
+    <div class="info-box" id="duplicate">
+      <h3 data-i="dupTitle">2. New Application Rejected as Duplicate</h3>
+      <p data-i="dupText">Aadhaar is designed as a unique identity number. If an application is rejected as a duplicate, do not keep submitting repeated applications. Contact UIDAI, share the official enrolment or rejection reference through the authorised channel and ask how your existing record can be reviewed.</p>
     </div>
-  </div>
-</section>
 
-<section id="disclaimer">
-  <div class="container">
-    <h2 class="section-title" data-t="disclaimerTitle">Disclaimer</h2>
-    <div class="card">
-      <p data-t="disclaimerText">Aadhaar Sevaa is an independent website and is not affiliated with, authorised by, or operated by UIDAI or the Government of India. Information is general guidance and is not a substitute for official confirmation. Rules and services may change; always verify with UIDAI.</p>
+    <div class="info-box" id="mismatch">
+      <h3 data-i="misTitle">3. Name or Document Mismatch</h3>
+      <p data-i="misText">If your name or other details differ between documents, ask UIDAI which valid supporting documents are accepted for the specific update. Check spelling, order of names and document validity before submitting an update request.</p>
     </div>
-  </div>
-</section>
 
-<section id="contact" style="background:#fff0f6">
-  <div class="container">
-    <h2 class="section-title" data-t="contactTitle">Contact & Official Support</h2>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">☎️</div>
-        <h3 data-t="helpline">UIDAI Helpline</h3>
-        <p>1947</p>
-        <a class="btn" href="tel:1947" data-t="callNow">Call Now</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">✉️</div>
-        <h3 data-t="emailUidai">UIDAI Email</h3>
-        <p>help@uidai.gov.in</p>
-        <a class="btn" href="mailto:help@uidai.gov.in" data-t="sendEmail">Send Email</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3 data-t="officialWebsite">Official Website</h3>
-        <p>uidai.gov.in</p>
-        <a class="btn" href="https://uidai.gov.in/" target="_blank" rel="noopener" data-t="visitWebsite">Visit Website</a>
-      </div>
+    <div class="info-box" id="update">
+      <h3 data-i="updTitle">4. Aadhaar Update Rejected</h3>
+      <p data-i="updText">Check the rejection reason and whether the submitted document meets UIDAI requirements. If you do not understand the reason, contact UIDAI or visit an authorised Aadhaar centre. Do not rely on unofficial agents promising guaranteed approval.</p>
     </div>
-  </div>
-</section>
 
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3>Aadhaar Sevaa</h3>
-        <p data-t="footerText">Independent Aadhaar information and guidance.</p>
-      </div>
-      <div>
-        <h4 data-t="quickLinks">Quick Links</h4>
-        <a href="#home" data-t="home">Home</a>
-        <a href="#problems" data-t="problems">Problem Help</a>
-        <a href="#services" data-t="services">Services</a>
-        <a href="#faq" data-t="faq">FAQ</a>
-      </div>
-      <div>
-        <h4 data-t="legal">Legal</h4>
-        <a href="#about" data-t="about">About Us</a>
-        <a href="#privacy" data-t="privacy">Privacy Policy</a>
-        <a href="#disclaimer" data-t="disclaimer">Disclaimer</a>
-        <a href="#contact" data-t="contact">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © <span id="year"></span> Aadhaar Sevaa. <span data-t="rights">All rights reserved.</span>
-      <p data-t="independent">Independent website. Not affiliated with UIDAI or Government of India.</p>
-    </div>
-  </div>
-</footer>
-
-<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
-</div>
-
-<script>
-let currentLanguage = "en";
-
-const words = {
-en:{
-home:"Home",problems:"Problems",services:"Services",state:"State Help",faq:"FAQ",
-contact:"Contact",changeLanguage:"Language",mainMenu:"Main Menu",information:"Information",
-officialLinks:"Official Links",about:"About Us",privacy:"Privacy Policy",
-disclaimer:"Disclaimer",suspended:"Suspended / Deactivated Aadhaar",
-heroTitle:"Aadhaar Problems? Find the Right Guidance.",
-heroText:"Understand common Aadhaar problems and learn how to contact official UIDAI support.",
-findHelp:"Find Problem Help",exploreServices:"Explore Services",
-problemTitle:"Aadhaar Problem Help",problemSubtitle:"Choose your problem to understand the next steps.",
-important:"Important:",importantText:"This website provides gen
+    <div class="info-box">
+      <
