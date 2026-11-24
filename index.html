@@ -1,355 +1,406 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="google-site-verification" content="TqPyI2PHmgTRkuaWkBj7pnc-vDZsWiSk9dU8MSyWaJ0">
-<title>Aadhaar Sevaa | Aadhaar Help & Guidance</title>
-<meta name="description" content="Independent Aadhaar help and guidance in Hindi, English, Gujarati, Marathi, Bengali and Tamil. Find official UIDAI services and support.">
-<meta name="theme-color" content="#f7b6cc">
+
+<title>Aadhaar Sevaa - Aadhaar Help & Guidance</title>
+<meta name="description" content="Understand Aadhaar suspended, deactivated, authentication, update and other Aadhaar problems. Get guidance and official UIDAI links.">
+<meta name="theme-color" content="#e94f91">
 <link rel="canonical" href="https://harryommsharmaa-hub.github.io/aadhaar-help/">
 
 <style>
-:root {
-  --pink:#e85d91;
-  --dark:#873451;
-  --light:#fff0f5;
+:root{
+  --pink:#e94f91;
+  --dark:#a92761;
+  --light:#fff0f6;
   --pale:#fff8fb;
+  --text:#34232c;
+  --muted:#765d69;
   --white:#fff;
-  --text:#35232b;
-  --muted:#796671;
-  --shadow:0 12px 35px rgba(180,65,110,.12);
+  --shadow:0 8px 28px rgba(174,42,101,.12);
 }
-* {box-sizing:border-box;margin:0;padding:0}
-html {scroll-behavior:smooth}
-body {
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
   background:var(--pale);
+  color:var(--text);
   line-height:1.65;
 }
-button,a {font:inherit}
-a {color:var(--pink);text-decoration:none}
-button {cursor:pointer}
-.hidden {display:none!important}
+button,a{font:inherit}
+a{color:var(--dark)}
+button{cursor:pointer}
+.hidden{display:none!important}
 
-/* LANGUAGE WELCOME SCREEN */
-#welcome {
+/* WELCOME */
+#welcome{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:25px;
-  background:linear-gradient(145deg,#fff7fa,#f9c5d8,#fff0f5);
-}
-.welcome-card {
-  width:100%;
-  max-width:650px;
-  padding:45px 25px;
+  background:linear-gradient(145deg,#fff7fb,#ffd9e9,#fff);
   text-align:center;
-  background:rgba(255,255,255,.88);
-  border:1px solid white;
-  border-radius:30px;
+}
+.welcome-card{
+  width:min(100%,650px);
+  background:#ffffffdc;
+  padding:38px 22px;
+  border-radius:28px;
   box-shadow:var(--shadow);
+  border:1px solid #fff;
 }
-.welcome-title {
+.welcome-card h1{
   color:var(--dark);
-  font-size:clamp(27px,6vw,43px);
-  font-weight:800;
+  font-size:clamp(27px,6vw,39px);
+  margin:0 0 15px;
   white-space:nowrap;
-  letter-spacing:-1px;
 }
-.fingerprint {
-  width:95px;
-  height:95px;
-  margin:22px auto 15px;
+.fingerprint{
+  width:92px;
+  height:92px;
+  margin:8px auto 15px;
   color:var(--pink);
 }
-.select-title {
-  margin:8px 0 25px;
-  color:var(--muted);
-  font-size:17px;
-}
-.language-grid {
+.welcome-card h2{color:var(--dark);margin:8px 0 20px}
+.language-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:13px;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:440px;
+  margin:auto;
 }
-.language-btn {
-  padding:15px 10px;
-  border:1px solid #f4c4d5;
-  border-radius:15px;
+.language-btn{
+  border:1px solid #f2a5c5;
   background:white;
   color:var(--dark);
-  font-size:16px;
-  font-weight:700;
+  border-radius:14px;
+  padding:13px;
+  font-weight:bold;
   transition:.25s;
 }
-.language-btn:hover {
+.language-btn:hover{
   background:var(--pink);
   color:white;
   transform:translateY(-3px);
-  box-shadow:var(--shadow);
-}
-.welcome-note {
-  margin-top:24px;
-  font-size:12px;
-  color:var(--muted);
 }
 
-/* CIRCULAR REVEAL */
-#reveal {
+/* REVEAL */
+#reveal{
   position:fixed;
-  z-index:9999;
-  inset:0;
+  z-index:10000;
+  width:20px;
+  height:20px;
+  border-radius:50%;
   background:var(--pink);
-  clip-path:circle(0 at var(--x,50%) var(--y,50%));
+  transform:scale(0);
   pointer-events:none;
 }
-#reveal.active {
-  animation:circleReveal .75s ease-in-out forwards;
-}
-@keyframes circleReveal {
-  to {clip-path:circle(150vmax at var(--x,50%) var(--y,50%))}
+#reveal.go{animation:circleReveal .8s ease-in-out forwards}
+@keyframes circleReveal{
+  to{transform:scale(180);opacity:0}
 }
 
-/* MAIN WEBSITE */
-#site {min-height:100vh}
-header {
+/* HEADER */
+header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(255,255,255,.96);
-  box-shadow:0 3px 18px rgba(0,0,0,.05);
-  backdrop-filter:blur(12px);
+  z-index:1000;
+  background:#fff;
+  box-shadow:0 3px 15px #a9276114;
 }
-.navbar {
-  max-width:1150px;
-  margin:auto;
-  padding:13px 20px;
+.topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:12px;
+  max-width:1200px;
+  margin:auto;
+  padding:10px 17px;
 }
-.brand {
+.brand{
   color:var(--dark);
   font-size:21px;
   font-weight:800;
+  text-decoration:none;
+  white-space:nowrap;
 }
-.brand span {color:var(--pink)}
-.nav-links {
+.nav-links{
   display:flex;
   align-items:center;
-  flex-wrap:wrap;
-  gap:17px;
+  gap:16px;
 }
-.nav-links a {
+.nav-links a{
+  text-decoration:none;
   color:var(--text);
-  font-size:13px;
-  font-weight:700;
+  font-size:14px;
+  font-weight:bold;
 }
-.nav-links a:hover {color:var(--pink)}
-.small-btn {
+.nav-links a:hover{color:var(--pink)}
+.header-actions{display:flex;align-items:center;gap:9px}
+.menu-btn,.lang-change{
   border:0;
-  border-radius:30px;
-  padding:9px 14px;
   background:var(--light);
   color:var(--dark);
-  font-weight:700;
+  padding:10px 13px;
+  border-radius:11px;
+  font-weight:bold;
 }
-.hero {
-  padding:85px 20px;
-  text-align:center;
-  background:linear-gradient(140deg,#ffe8f0,#f9c2d7,#fff7fa);
+.menu-btn{font-size:20px}
+.menu-btn:hover,.lang-change:hover{background:#ffd3e5}
+
+/* SIDE MENU */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#24131db0;
+  z-index:1998;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
 }
-.hero-inner {max-width:800px;margin:auto}
-.hero h1 {
-  color:var(--dark);
-  font-size:clamp(32px,6vw,52px);
-  line-height:1.2;
-  margin-bottom:18px;
-}
-.hero p {
-  max-width:680px;
-  margin:0 auto 25px;
-  color:#684956;
-  font-size:17px;
-}
-.primary-btn {
-  display:inline-block;
-  border:0;
-  border-radius:30px;
-  padding:13px 24px;
-  background:var(--pink);
-  color:white;
-  font-weight:700;
-  box-shadow:var(--shadow);
-  transition:.2s;
-}
-.primary-btn:hover {background:var(--dark);transform:translateY(-2px)}
-.container {
-  width:min(1100px,92%);
-  margin:auto;
-}
-.section {padding:65px 0}
-.section-heading {
-  margin-bottom:30px;
-  text-align:center;
-}
-.section-heading h2 {
-  color:var(--dark);
-  font-size:clamp(25px,4vw,34px);
-}
-.section-heading p {color:var(--muted);margin-top:7px}
-.cards {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:20px;
-}
-.card {
-  padding:25px 22px;
-  border:1px solid #f6dce6;
-  border-radius:20px;
+.overlay.show{opacity:1;visibility:visible}
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-330px;
+  width:min(310px,85vw);
+  height:100vh;
+  overflow-y:auto;
+  z-index:1999;
   background:white;
-  box-shadow:var(--shadow);
-  transition:.25s;
+  padding:20px;
+  box-shadow:-8px 0 30px #0002;
+  transition:right .35s ease;
 }
-.card:hover {transform:translateY(-5px)}
-.card-icon {
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  background:var(--light);
-  font-size:24px;
+.side-menu.open{right:0}
+.side-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--dark);
+  font-size:21px;
+  font-weight:bold;
   margin-bottom:15px;
 }
-.card h3 {color:var(--dark);font-size:18px;margin-bottom:9px}
-.card p {color:var(--muted);font-size:14px;margin-bottom:17px}
-.card-link {
-  display:inline-block;
-  font-weight:700;
-  font-size:14px;
-}
-.notice {
-  padding:22px;
-  background:#fff0f5;
-  border-left:4px solid var(--pink);
-  border-radius:12px;
-  color:#684956;
-}
-.faq-list {max-width:850px;margin:auto}
-details {
-  background:white;
-  border:1px solid #f4dce5;
-  border-radius:13px;
-  padding:17px 20px;
-  margin-bottom:12px;
-}
-summary {
-  color:var(--dark);
-  font-weight:700;
-  cursor:pointer;
-}
-details p {margin-top:12px;color:var(--muted)}
-.info-panel {
-  background:white;
-  padding:28px;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  margin-bottom:20px;
-}
-.info-panel h3 {color:var(--dark);margin-bottom:10px}
-.info-panel p {color:var(--muted)}
-.contact-links {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:15px;
-}
-.contact-links a {
+.close-menu{
+  border:0;
   background:var(--light);
-  padding:10px 15px;
-  border-radius:12px;
-  font-weight:700;
+  color:var(--dark);
+  font-size:25px;
+  border-radius:10px;
+  width:40px;height:40px;
 }
-footer {
-  background:#4b2938;
-  color:#fff;
-  padding:35px 20px;
+.side-menu a{
+  display:block;
+  text-decoration:none;
+  color:var(--text);
+  padding:11px 12px;
+  border-radius:10px;
+  border-bottom:1px solid #f8e4ed;
+  font-weight:600;
+}
+.side-menu a:hover{background:var(--light);color:var(--dark)}
+.menu-label{
+  color:var(--pink);
+  font-size:12px;
+  font-weight:bold;
+  margin:18px 10px 5px;
+  text-transform:uppercase;
+}
+
+/* COMMON */
+.container{width:min(1120px,92%);margin:auto}
+section{padding:55px 0;scroll-margin-top:78px}
+.section-title{
+  text-align:center;
+  color:var(--dark);
+  font-size:clamp(25px,5vw,34px);
+  margin:0 0 8px;
+}
+.section-subtitle{
+  text-align:center;
+  color:var(--muted);
+  max-width:720px;
+  margin:0 auto 28px;
+}
+.hero{
+  background:linear-gradient(135deg,#ffe5ef,#fff,#ffd5e6);
+  padding:65px 0;
   text-align:center;
 }
-footer p {font-size:13px;color:#f8dce7;margin:8px auto;max-width:750px}
-.footer-links {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:18px;
-  margin:17px 0;
+.hero h1{
+  color:var(--dark);
+  font-size:clamp(30px,6vw,46px);
+  line-height:1.2;
+  margin:0 0 15px;
 }
-.footer-links a {color:white;font-size:13px}
-.back-top {
+.hero p{max-width:720px;margin:0 auto 23px;color:#624451}
+.btn{
+  display:inline-block;
+  border:0;
+  background:var(--pink);
+  color:white;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:12px;
+  font-weight:bold;
+  margin:5px;
+  transition:.2s;
+}
+.btn:hover{background:var(--dark);transform:translateY(-2px)}
+.btn.secondary{background:white;color:var(--dark);border:1px solid #f0a0c2}
+
+/* CARDS */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+.card{
+  background:white;
+  border:1px solid #f8dce8;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.card h3{color:var(--dark);margin:0 0 8px}
+.card p{color:var(--muted);margin:0 0 12px}
+.card-icon{font-size:30px;margin-bottom:8px}
+
+/* PROBLEM GUIDES */
+.problem-card{
+  background:white;
+  border:1px solid #f3d5e2;
+  border-radius:17px;
+  margin:13px 0;
+  overflow:hidden;
+  box-shadow:0 5px 18px #a927610c;
+}
+.problem-card summary{
+  cursor:pointer;
+  padding:17px 19px;
+  color:var(--dark);
+  font-weight:bold;
+  font-size:17px;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.problem-card summary::-webkit-details-marker{display:none}
+.problem-card summary:after{content:"＋";font-size:22px}
+.problem-card[open] summary:after{content:"−"}
+.problem-content{padding:0 20px 20px;color:#5c4651}
+.problem-content h4{color:var(--dark);margin:15px 0 5px}
+.problem-content li{margin:7px 0}
+.featured-problem{
+  border:2px solid #ed8bb5;
+  background:linear-gradient(120deg,#fff,#fff3f8);
+}
+.notice{
+  background:#fff0f6;
+  border-left:5px solid var(--pink);
+  border-radius:12px;
+  padding:18px;
+  margin:22px 0;
+}
+
+/* FAQ */
+.faq-item{
+  background:white;
+  border:1px solid #f4d9e5;
+  border-radius:13px;
+  padding:15px 18px;
+  margin:10px 0;
+}
+.faq-item summary{cursor:pointer;color:var(--dark);font-weight:bold}
+.faq-item p{color:var(--muted);margin-bottom:0}
+
+/* FOOTER */
+footer{
+  background:#3b2430;
+  color:white;
+  padding:35px 0 20px;
+  margin-top:25px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:25px;
+}
+footer h3,footer h4{color:#ffb8d4}
+footer a{color:#ffe0ed;display:block;text-decoration:none;margin:7px 0}
+footer a:hover{text-decoration:underline}
+.footer-bottom{
+  text-align:center;
+  border-top:1px solid #ffffff30;
+  padding-top:17px;
+  margin-top:25px;
+  font-size:13px;
+}
+#backTop{
   position:fixed;
   bottom:20px;
   right:18px;
-  width:45px;
-  height:45px;
+  width:47px;
+  height:47px;
   border:0;
   border-radius:50%;
-  background:var(--pink);
   color:white;
-  font-size:21px;
+  background:var(--pink);
+  font-size:22px;
   box-shadow:var(--shadow);
+  display:none;
+  z-index:900;
 }
-@media(max-width:800px) {
-  .cards {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nav-links {gap:10px}
+#backTop.show{display:block}
+.small-note{font-size:13px;color:var(--muted)}
+@media(max-width:850px){
+  .nav-links{display:none}
 }
-@media(max-width:560px) {
-  .welcome-card {padding:35px 16px}
-  .welcome-title {font-size:clamp(22px,6vw,32px)}
-  .fingerprint {width:80px;height:80px}
-  .cards {grid-template-columns:1fr}
-  .navbar {flex-wrap:wrap}
-  .nav-links {width:100%;justify-content:center}
-  .hero {padding:65px 17px}
-  .section {padding:48px 0}
+@media(max-width:480px){
+  .welcome-card{padding:30px 14px}
+  .welcome-card h1{font-size:26px}
+  .language-grid{gap:9px}
+  .language-btn{padding:12px 7px}
+  section{padding:42px 0}
+  .hero{padding:48px 0}
+  .brand{font-size:18px}
+  .lang-change{font-size:12px;padding:9px}
 }
 </style>
 </head>
 
 <body>
 
-<div id="reveal"></div>
-
-<!-- LANGUAGE SELECTION -->
-<section id="welcome">
+<div id="welcome">
   <div class="welcome-card">
-    <h1 class="welcome-title">Welcome to Aadhaar Sevaa</h1>
+    <h1>Welcome to Aadhaar Sevaa</h1>
 
-    <svg class="fingerprint" viewBox="0 0 100 100" fill="none"
-      stroke="currentColor" stroke-width="3.3" stroke-linecap="round">
-      <path d="M50 12C29 12 14 28 14 48"/>
-      <path d="M50 22C35 22 24 34 24 49"/>
-      <path d="M50 32C41 32 34 39 34 49"/>
-      <path d="M50 12C71 12 86 28 86 48"/>
-      <path d="M50 22C65 22 76 34 76 49"/>
-      <path d="M50 32C59 32 66 39 66 49"/>
-      <path d="M14 52C14 72 27 88 42 92"/>
-      <path d="M24 53C24 69 33 81 45 86"/>
-      <path d="M34 53C34 65 40 74 49 78"/>
-      <path d="M86 52C86 72 73 88 58 92"/>
-      <path d="M76 53C76 69 67 81 55 86"/>
-      <path d="M66 53C66 65 60 74 51 78"/>
-      <path d="M50 43V61"/>
-      <path d="M50 70V89"/>
+    <svg class="fingerprint" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
+      <path d="M50 10C27 10 12 27 12 49"/>
+      <path d="M50 19C32 19 21 32 21 49"/>
+      <path d="M50 28C37 28 30 37 30 50"/>
+      <path d="M50 37C43 37 39 42 39 50"/>
+      <path d="M50 10C73 10 88 27 88 49"/>
+      <path d="M50 19C68 19 79 32 79 49"/>
+      <path d="M50 28C63 28 70 37 70 50"/>
+      <path d="M50 37C57 37 61 42 61 50"/>
+      <path d="M12 54C13 75 27 89 43 92"/>
+      <path d="M21 55C22 72 31 82 43 85"/>
+      <path d="M30 56C31 68 37 75 46 78"/>
+      <path d="M88 54C87 75 73 89 57 92"/>
+      <path d="M79 55C78 72 69 82 57 85"/>
+      <path d="M70 56C69 68 63 75 54 78"/>
+      <path d="M50 46V61C50 72 48 80 50 91"/>
     </svg>
 
-    <p class="select-title" id="selectLanguage">Select Your Language</p>
-
+    <h2>Select Your Language</h2>
     <div class="language-grid">
       <button class="language-btn" onclick="chooseLanguage('hi',this)">हिन्दी</button>
       <button class="language-btn" onclick="chooseLanguage('en',this)">English</button>
@@ -358,426 +409,247 @@ footer p {font-size:13px;color:#f8dce7;margin:8px auto;max-width:750px}
       <button class="language-btn" onclick="chooseLanguage('bn',this)">বাংলা</button>
       <button class="language-btn" onclick="chooseLanguage('ta',this)">தமிழ்</button>
     </div>
-
-    <p class="welcome-note">Independent Aadhaar information and guidance website</p>
+    <p class="small-note">Independent Aadhaar information and guidance website</p>
   </div>
-</section>
+</div>
 
-<!-- MAIN WEBSITE -->
-<div id="site" class="hidden">
+<div id="reveal"></div>
+
+<div id="website" class="hidden">
 
 <header>
-  <nav class="navbar">
-    <a href="#home" class="brand">Aadhaar <span>Sevaa</span></a>
+  <div class="topbar">
+    <a href="#home" class="brand">♡ Aadhaar Sevaa</a>
 
-    <div class="nav-links">
-      <a href="#home" data-t="navHome">Home</a>
-      <a href="#services" data-t="navServices">Services</a>
-      <a href="#faq" data-t="navFaq">FAQ</a>
-      <a href="#contact" data-t="navContact">Contact</a>
-      <button class="small-btn" onclick="backToLanguages()" data-t="changeLanguage">Language</button>
+    <nav class="nav-links">
+      <a href="#home" data-t="home">Home</a>
+      <a href="#problems" data-t="problems">Problems</a>
+      <a href="#services" data-t="services">Services</a>
+      <a href="#statehelp" data-t="state">State Help</a>
+      <a href="#faq" data-t="faq">FAQ</a>
+      <a href="#contact" data-t="contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-change" onclick="backToLanguages()" data-t="changeLanguage">Language</button>
+      <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">☰</button>
     </div>
-  </nav>
+  </div>
 </header>
 
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<aside class="side-menu" id="sideMenu">
+  <div class="side-head">
+    <span>Aadhaar Sevaa</span>
+    <button class="close-menu" onclick="closeMenu()" aria-label="Close menu">×</button>
+  </div>
+
+  <div class="menu-label" data-t="mainMenu">Main Menu</div>
+  <a href="#home" onclick="closeMenu()" data-t="home">Home</a>
+  <a href="#problems" onclick="closeMenu()" data-t="problems">Aadhaar Problem Help</a>
+  <a href="#suspended" onclick="closeMenu()" data-t="suspended">Suspended / Deactivated Aadhaar</a>
+  <a href="#services" onclick="closeMenu()" data-t="services">Services</a>
+  <a href="#statehelp" onclick="closeMenu()" data-t="state">State-wise Help</a>
+  <a href="#faq" onclick="closeMenu()" data-t="faq">FAQ</a>
+
+  <div class="menu-label" data-t="information">Information</div>
+  <a href="#about" onclick="closeMenu()" data-t="about">About Us</a>
+  <a href="#privacy" onclick="closeMenu()" data-t="privacy">Privacy Policy</a>
+  <a href="#disclaimer" onclick="closeMenu()" data-t="disclaimer">Disclaimer</a>
+  <a href="#contact" onclick="closeMenu()" data-t="contact">Contact Us</a>
+
+  <div class="menu-label" data-t="officialLinks">Official Links</div>
+  <a href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener">MyAadhaar ↗</a>
+  <a href="https://uidai.gov.in/" target="_blank" rel="noopener">UIDAI ↗</a>
+  <a href="https://bhuvan-app3.nrsc.gov.in/aadhaar/" target="_blank" rel="noopener">Aadhaar Centre Locator ↗</a>
+</aside>
+
 <main>
+
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <h1 data-t="heroTitle">Aadhaar Help & Guidance</h1>
-    <p data-t="heroText">Find useful information and official links for common Aadhaar-related services and problems.</p>
-    <a href="#services" class="primary-btn" data-t="explore">Explore Services</a>
+  <div class="container">
+    <h1 data-t="heroTitle">Aadhaar Problems? Find the Right Guidance.</h1>
+    <p data-t="heroText">Understand common Aadhaar problems and learn how to contact official UIDAI support.</p>
+    <a href="#problems" class="btn" data-t="findHelp">Find Problem Help</a>
+    <a href="#services" class="btn secondary" data-t="exploreServices">Explore Services</a>
   </div>
 </section>
 
-<section class="section" id="services">
+<section id="problems">
   <div class="container">
-    <div class="section-heading">
-      <h2 data-t="servicesTitle">Aadhaar Services</h2>
-      <p data-t="servicesSubtitle">Choose a topic to visit the relevant official service.</p>
+    <h2 class="section-title" data-t="problemTitle">Aadhaar Problem Help</h2>
+    <p class="section-subtitle" data-t="problemSubtitle">Choose your problem to understand the next steps.</p>
+
+    <div class="notice">
+      <strong data-t="important">Important:</strong>
+      <span data-t="importantText">This website provides general guidance. Only UIDAI can confirm your Aadhaar record or status.</span>
     </div>
-    <div class="cards" id="serviceCards"></div>
+
+    <div id="problemCards"></div>
   </div>
 </section>
 
-<section class="section">
+<section id="suspended" style="background:#fff0f6">
   <div class="container">
-    <div class="section-heading">
-      <h2 data-t="helpTitle">Important Guidance</h2>
+    <h2 class="section-title" data-t="suspendedTitle">Suspended / Deactivated Aadhaar</h2>
+    <p class="section-subtitle" data-t="suspendedSubtitle">Understand the issue and follow official channels for help.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🔎</div>
+        <h3 data-t="whatTitle">What does it mean?</h3>
+        <p data-t="whatText">A message saying suspended or deactivated needs to be checked with UIDAI. Do not assume the exact reason from one error message.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3 data-t="checkTitle">Check your case</h3>
+        <p data-t="checkText">Review any official communication and contact UIDAI to confirm the actual status and required action.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☎️</div>
+        <h3 data-t="supportTitle">Get official support</h3>
+        <p data-t="supportText">Call UIDAI helpline 1947 or use the official UIDAI website for guidance.</p>
+      </div>
     </div>
-    <div class="notice" data-t="helpText">
-      Never share your Aadhaar OTP or personal information with unknown people or websites.
+
+    <div class="notice">
+      <strong data-t="remember">Remember:</strong>
+      <span data-t="safetyText">Aadhaar Sevaa cannot check, activate, restore or change anyone's Aadhaar. Do not share your Aadhaar number, OTP or documents on this website.</span>
+    </div>
+
+    <a class="btn" href="https://uidai.gov.in/" target="_blank" rel="noopener" data-t="visitUidai">Visit Official UIDAI Website ↗</a>
+    <a class="btn secondary" href="tel:1947" data-t="callUidai">Call UIDAI 1947</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title" data-t="servicesTitle">Useful Aadhaar Services</h2>
+    <p class="section-subtitle" data-t="servicesSubtitle">Access official portals and useful resources.</p>
+    <div class="card-grid" id="serviceCards"></div>
+  </div>
+</section>
+
+<section id="statehelp" style="background:#fff0f6">
+  <div class="container">
+    <h2 class="section-title" data-t="stateTitle">State-wise Aadhaar Help</h2>
+    <p class="section-subtitle" data-t="stateText">Find an authorised Aadhaar centre using the official locator. You can search by state, district or PIN code where available.</p>
+    <div class="card" style="text-align:center">
+      <div class="card-icon">📍</div>
+      <h3 data-t="findCentre">Find an Aadhaar Centre</h3>
+      <p data-t="centreText">Use the official UIDAI centre locator to find current centre details. Centre availability and services may vary.</p>
+      <a class="btn" href="https://bhuvan-app3.nrsc.gov.in/aadhaar/" target="_blank" rel="noopener" data-t="openLocator">Open Centre Locator ↗</a>
     </div>
   </div>
 </section>
 
-<section class="section" id="faq">
+<section id="faq">
   <div class="container">
-    <div class="section-heading">
-      <h2 data-t="faqTitle">Frequently Asked Questions</h2>
-      <p data-t="faqSubtitle">Helpful answers to common questions.</p>
-    </div>
-    <div class="faq-list" id="faqList"></div>
+    <h2 class="section-title" data-t="faqTitle">Frequently Asked Questions</h2>
+    <div id="faqList"></div>
   </div>
 </section>
 
-<section class="section" id="about">
+<section id="about">
   <div class="container">
-    <div class="info-panel">
-      <h3 data-t="aboutTitle">About Aadhaar Sevaa</h3>
-      <p data-t="aboutText">Aadhaar Sevaa is an independent informational website created to help visitors find general guidance and official UIDAI resources.</p>
+    <h2 class="section-title" data-t="aboutTitle">About Aadhaar Sevaa</h2>
+    <div class="card">
+      <p data-t="aboutText">Aadhaar Sevaa is an independent information website created to help people understand common Aadhaar-related issues and find official support resources.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="privacy">
+<section id="privacy" style="background:#fff0f6">
   <div class="container">
-    <div class="info-panel">
-      <h3 data-t="privacyTitle">Privacy & Safety</h3>
-      <p data-t="privacyText">This website does not ask visitors to submit Aadhaar numbers, OTPs, passwords or identity documents. Use official UIDAI services for personal Aadhaar-related work.</p>
+    <h2 class="section-title" data-t="privacyTitle">Privacy Policy</h2>
+    <div class="card">
+      <p data-t="privacyText">This website does not ask visitors to submit Aadhaar numbers, OTPs, passwords or identity documents. Do not share sensitive personal information through public forms or messages. External official websites have their own privacy policies.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="disclaimer">
+<section id="disclaimer">
   <div class="container">
-    <div class="info-panel">
-      <h3 data-t="disclaimerTitle">Disclaimer</h3>
-      <p data-t="disclaimerText">This is an independent help and information website. It is not affiliated with, endorsed by or operated by UIDAI or the Government of India. Official services are provided only through official government websites.</p>
+    <h2 class="section-title" data-t="disclaimerTitle">Disclaimer</h2>
+    <div class="card">
+      <p data-t="disclaimerText">Aadhaar Sevaa is an independent website and is not affiliated with, authorised by, or operated by UIDAI or the Government of India. Information is general guidance and is not a substitute for official confirmation. Rules and services may change; always verify with UIDAI.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="contact">
+<section id="contact" style="background:#fff0f6">
   <div class="container">
-    <div class="info-panel">
-      <h3 data-t="contactTitle">Official Contact Information</h3>
-      <p data-t="contactText">For Aadhaar-related support, contact UIDAI through its official channels.</p>
-      <div class="contact-links">
-        <a href="tel:1947">UIDAI Helpline: 1947</a>
-        <a href="mailto:help@uidai.gov.in">help@uidai.gov.in</a>
-        <a href="https://uidai.gov.in/" target="_blank" rel="noopener noreferrer" data-t="officialWebsite">Official UIDAI Website</a>
+    <h2 class="section-title" data-t="contactTitle">Contact & Official Support</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">☎️</div>
+        <h3 data-t="helpline">UIDAI Helpline</h3>
+        <p>1947</p>
+        <a class="btn" href="tel:1947" data-t="callNow">Call Now</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">✉️</div>
+        <h3 data-t="emailUidai">UIDAI Email</h3>
+        <p>help@uidai.gov.in</p>
+        <a class="btn" href="mailto:help@uidai.gov.in" data-t="sendEmail">Send Email</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3 data-t="officialWebsite">Official Website</h3>
+        <p>uidai.gov.in</p>
+        <a class="btn" href="https://uidai.gov.in/" target="_blank" rel="noopener" data-t="visitWebsite">Visit Website</a>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer>
-  <div class="footer-links">
-    <a href="#about" data-t="aboutTitle">About</a>
-    <a href="#privacy" data-t="privacyTitle">Privacy</a>
-    <a href="#disclaimer" data-t="disclaimerTitle">Disclaimer</a>
-    <a href="#contact" data-t="contactTitle">Contact</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Aadhaar Sevaa</h3>
+        <p data-t="footerText">Independent Aadhaar information and guidance.</p>
+      </div>
+      <div>
+        <h4 data-t="quickLinks">Quick Links</h4>
+        <a href="#home" data-t="home">Home</a>
+        <a href="#problems" data-t="problems">Problem Help</a>
+        <a href="#services" data-t="services">Services</a>
+        <a href="#faq" data-t="faq">FAQ</a>
+      </div>
+      <div>
+        <h4 data-t="legal">Legal</h4>
+        <a href="#about" data-t="about">About Us</a>
+        <a href="#privacy" data-t="privacy">Privacy Policy</a>
+        <a href="#disclaimer" data-t="disclaimer">Disclaimer</a>
+        <a href="#contact" data-t="contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> Aadhaar Sevaa. <span data-t="rights">All rights reserved.</span>
+      <p data-t="independent">Independent website. Not affiliated with UIDAI or Government of India.</p>
+    </div>
   </div>
-  <p data-t="footerText">Aadhaar Sevaa is an independent informational website and is not an official UIDAI website.</p>
-  <p>© <span id="year"></span> Aadhaar Sevaa. <span data-t="rights">All rights reserved.</span></p>
 </footer>
 
-<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
 </div>
 
 <script>
-const services = {
-  hi: [
-    ["🔎","आधार स्टेटस चेक करें","आधार आवेदन या अपडेट की स्थिति देखने के लिए आधिकारिक पोर्टल खोलें।","स्टेटस चेक करें","https://myaadhaar.uidai.gov.in/"],
-    ["📄","ई-आधार डाउनलोड","अपना ई-आधार डाउनलोड करने के लिए आधिकारिक UIDAI पोर्टल पर जाएँ।","डाउनलोड करें","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC आधार कार्ड","PVC आधार कार्ड से जुड़ी आधिकारिक जानकारी और सेवा प्राप्त करें।","PVC सेवा खोलें","https://myaadhaar.uidai.gov.in/"],
-    ["📍","आधार केंद्र खोजें","अपने नजदीकी आधार सेवा केंद्र की जानकारी प्राप्त करें।","केंद्र खोजें","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","शिकायत की स्थिति","UIDAI में दर्ज शिकायत की स्थिति जानने के लिए आधिकारिक लिंक खोलें।","शिकायत देखें","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","शिकायत और सुझाव","UIDAI तक शिकायत या सुझाव पहुँचाने के आधिकारिक विकल्प देखें।","यहाँ जाएँ","https://uidai.gov.in/en/grievance-feedback.html"]
-  ],
-  en: [
-    ["🔎","Check Aadhaar Status","Visit the official portal to check your Aadhaar application or update status.","Check Status","https://myaadhaar.uidai.gov.in/"],
-    ["📄","Download e-Aadhaar","Visit the official UIDAI portal to access e-Aadhaar download services.","Download","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC Aadhaar Card","Find official information and services related to the PVC Aadhaar card.","PVC Service","https://myaadhaar.uidai.gov.in/"],
-    ["📍","Find Aadhaar Centre","Find information about an Aadhaar Seva Kendra near you.","Find Centre","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","Complaint Status","Open the official link to check the status of a UIDAI complaint.","Check Complaint","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","Grievance & Feedback","Find official ways to send a grievance or feedback to UIDAI.","Open Service","https://uidai.gov.in/en/grievance-feedback.html"]
-  ],
-  gu: [
-    ["🔎","આધાર સ્ટેટસ તપાસો","આધાર અરજી અથવા અપડેટની સ્થિતિ તપાસવા સત્તાવાર પોર્ટલ ખોલો.","સ્ટેટસ તપાસો","https://myaadhaar.uidai.gov.in/"],
-    ["📄","ઈ-આધાર ડાઉનલોડ","ઈ-આધાર ડાઉનલોડ કરવા સત્તાવાર UIDAI પોર્ટલ પર જાઓ.","ડાઉનલોડ કરો","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC આધાર કાર્ડ","PVC આધાર કાર્ડ સંબંધિત સત્તાવાર માહિતી મેળવો.","PVC સેવા","https://myaadhaar.uidai.gov.in/"],
-    ["📍","આધાર કેન્દ્ર શોધો","તમારી નજીકનું આધાર સેવા કેન્દ્ર શોધો.","કેન્દ્ર શોધો","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","ફરિયાદની સ્થિતિ","UIDAI માં નોંધાવેલી ફરિયાદની સ્થિતિ તપાસો.","ફરિયાદ તપાસો","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","ફરિયાદ અને પ્રતિસાદ","UIDAI ને ફરિયાદ અથવા પ્રતિસાદ મોકલવાના સત્તાવાર વિકલ્પો જુઓ.","સેવા ખોલો","https://uidai.gov.in/en/grievance-feedback.html"]
-  ],
-  mr: [
-    ["🔎","आधार स्थिती तपासा","आधार अर्ज किंवा अपडेटची स्थिती तपासण्यासाठी अधिकृत पोर्टल उघडा.","स्थिती तपासा","https://myaadhaar.uidai.gov.in/"],
-    ["📄","ई-आधार डाउनलोड","ई-आधार डाउनलोड करण्यासाठी अधिकृत UIDAI पोर्टलला भेट द्या.","डाउनलोड करा","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC आधार कार्ड","PVC आधार कार्डविषयी अधिकृत माहिती आणि सेवा मिळवा.","PVC सेवा","https://myaadhaar.uidai.gov.in/"],
-    ["📍","आधार केंद्र शोधा","तुमच्या जवळचे आधार सेवा केंद्र शोधा.","केंद्र शोधा","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","तक्रारीची स्थिती","UIDAI कडे केलेल्या तक्रारीची स्थिती तपासा.","तक्रार तपासा","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","तक्रार आणि अभिप्राय","UIDAI कडे तक्रार किंवा अभिप्राय पाठवण्याचे अधिकृत पर्याय पाहा.","सेवा उघडा","https://uidai.gov.in/en/grievance-feedback.html"]
-  ],
-  bn: [
-    ["🔎","আধার স্ট্যাটাস দেখুন","আধার আবেদন বা আপডেটের অবস্থা দেখতে সরকারি পোর্টাল খুলুন।","স্ট্যাটাস দেখুন","https://myaadhaar.uidai.gov.in/"],
-    ["📄","ই-আধার ডাউনলোড","ই-আধার ডাউনলোড পরিষেবার জন্য UIDAI পোর্টালে যান।","ডাউনলোড করুন","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC আধার কার্ড","PVC আধার কার্ড সম্পর্কে সরকারি তথ্য ও পরিষেবা দেখুন।","PVC পরিষেবা","https://myaadhaar.uidai.gov.in/"],
-    ["📍","আধার কেন্দ্র খুঁজুন","আপনার কাছাকাছি আধার পরিষেবা কেন্দ্র খুঁজুন।","কেন্দ্র খুঁজুন","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","অভিযোগের অবস্থা","UIDAI-তে করা অভিযোগের অবস্থা পরীক্ষা করুন।","অভিযোগ দেখুন","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","অভিযোগ ও মতামত","UIDAI-তে অভিযোগ বা মতামত পাঠানোর সরকারি উপায় দেখুন।","পরিষেবা খুলুন","https://uidai.gov.in/en/grievance-feedback.html"]
-  ],
-  ta: [
-    ["🔎","ஆதார் நிலையைச் சரிபார்க்கவும்","ஆதார் விண்ணப்பம் அல்லது புதுப்பிப்பு நிலையை அறிய அதிகாரப்பூர்வ தளத்தைத் திறக்கவும்.","நிலையைப் பார்க்க","https://myaadhaar.uidai.gov.in/"],
-    ["📄","இ-ஆதார் பதிவிறக்கம்","இ-ஆதார் சேவையைப் பெற UIDAI அதிகாரப்பூர்வ தளத்திற்குச் செல்லவும்.","பதிவிறக்கம்","https://myaadhaar.uidai.gov.in/"],
-    ["💳","PVC ஆதார் அட்டை","PVC ஆதார் அட்டை தொடர்பான அதிகாரப்பூர்வ தகவல்களைப் பெறவும்.","PVC சேவை","https://myaadhaar.uidai.gov.in/"],
-    ["📍","ஆதார் மையத்தைக் கண்டறியவும்","உங்களுக்கு அருகிலுள்ள ஆதார் சேவை மையத்தைக் கண்டறியவும்.","மையத்தைக் கண்டறி","https://bhuvan-app3.nrsc.gov.in/aadhaar/"],
-    ["📝","புகார் நிலை","UIDAI-யில் அளித்த புகாரின் நிலையைச் சரிபார்க்கவும்.","புகாரைப் பார்க்க","https://resident.uidai.gov.in/check-complaintstatus"],
-    ["📬","புகார் மற்றும் கருத்து","UIDAI-க்கு புகார் அல்லது கருத்து அனுப்பும் அதிகாரப்பூர்வ வழிகளைப் பார்க்கவும்.","சேவையைத் திற","https://uidai.gov.in/en/grievance-feedback.html"]
-  ]
-};
-
-const translations = {
-hi:{
- navHome:"होम",navServices:"सेवाएँ",navFaq:"सवाल-जवाब",navContact:"संपर्क",
- changeLanguage:"भाषा बदलें",heroTitle:"आधार सहायता और मार्गदर्शन",
- heroText:"आधार से जुड़ी सामान्य सेवाओं और समस्याओं के लिए उपयोगी जानकारी और आधिकारिक लिंक यहाँ पाएँ।",
- explore:"सेवाएँ देखें",servicesTitle:"आधार सेवाएँ",
- servicesSubtitle:"संबंधित आधिकारिक सेवा खोलने के लिए विषय चुनें।",
- helpTitle:"महत्वपूर्ण सावधानी",
- helpText:"अपना आधार OTP, पासवर्ड या निजी जानकारी किसी अनजान व्यक्ति या वेबसाइट के साथ साझा न करें।",
- faqTitle:"अक्सर पूछे जाने वाले सवाल",faqSubtitle:"कुछ सामान्य सवालों के उपयोगी जवाब।",
- aboutTitle:"आधार सेवा के बारे में",
- aboutText:"आधार सेवा एक स्वतंत्र जानकारी वेबसाइट है, जिसका उद्देश्य लोगों को सामान्य मार्गदर्शन और UIDAI के आधिकारिक संसाधन खोजने में मदद करना है।",
- privacyTitle:"गोपनीयता और सुरक्षा",
- privacyText:"यह वेबसाइट आधार नंबर, OTP, पासवर्ड या पहचान दस्तावेज जमा करने के लिए नहीं कहती। अपने आधार से जुड़े निजी काम के लिए UIDAI की आधिकारिक सेवाओं का उपयोग करें।",
- disclaimerTitle:"अस्वीकरण",
- disclaimerText:"यह एक स्वतंत्र सहायता और जानकारी वेबसाइट है। इसका UIDAI या भारत सरकार से कोई संबंध, समर्थन या संचालन नहीं है। आधिकारिक सेवाएँ केवल सरकारी वेबसाइटों पर उपलब्ध हैं।",
- contactTitle:"आधिकारिक संपर्क जानकारी",
- contactText:"आधार से जुड़ी सहायता के लिए UIDAI के आधिकारिक माध्यमों से संपर्क करें।",
- officialWebsite:"UIDAI की आधिकारिक वेबसाइट",
- footerText:"आधार सेवा एक स्वतंत्र जानकारी वेबसाइट है, UIDAI की आधिकारिक वेबसाइट नहीं।",
- rights:"सर्वाधिकार सुरक्षित।",
- faqs:[
- ["आधार अपडेट कैसे करें?","अपडेट की उपलब्ध सेवाओं और प्रक्रिया की जानकारी के लिए UIDAI की आधिकारिक वेबसाइट या आधार केंद्र देखें।"],
- ["आधार अपडेट की स्थिति कैसे देखें?","UIDAI के MyAadhaar पोर्टल पर उपलब्ध स्थिति जाँच विकल्प का उपयोग करें।"],
- ["नजदीकी आधार केंद्र कैसे खोजें?","आधिकारिक आधार केंद्र लोकेटर का उपयोग करें।"],
- ["UIDAI से संपर्क कैसे करें?","UIDAI हेल्पलाइन 1947 या help@uidai.gov.in पर संपर्क करें।"]
- ]
-},
-en:{
- navHome:"Home",navServices:"Services",navFaq:"FAQ",navContact:"Contact",
- changeLanguage:"Language",heroTitle:"Aadhaar Help & Guidance",
- heroText:"Find useful information and official links for common Aadhaar-related services and problems.",
- explore:"Explore Services",servicesTitle:"Aadhaar Services",
- servicesSubtitle:"Choose a topic to visit the relevant official service.",
- helpTitle:"Important Safety Guidance",
- helpText:"Never share your Aadhaar OTP, password or personal information with unknown people or websites.",
- faqTitle:"Frequently Asked Questions",faqSubtitle:"Helpful answers to common questions.",
- aboutTitle:"About Aadhaar Sevaa",
- aboutText:"Aadhaar Sevaa is an independent informational website created to help visitors find general guidance and official UIDAI resources.",
- privacyTitle:"Privacy & Safety",
- privacyText:"This website does not ask visitors to submit Aadhaar numbers, OTPs, passwords or identity documents. Use official UIDAI services for personal Aadhaar-related work.",
- disclaimerTitle:"Disclaimer",
- disclaimerText:"This is an independent help and information website. It is not affiliated with, endorsed by or operated by UIDAI or the Government of India. Official services are provided only through official government websites.",
- contactTitle:"Official Contact Information",
- contactText:"For Aadhaar-related support, contact UIDAI through its official channels.",
- officialWebsite:"Official UIDAI Website",
- footerText:"Aadhaar Sevaa is an independent informational website and is not an official UIDAI website.",
- rights:"All rights reserved.",
- faqs:[
- ["How can I update Aadhaar?","Check the UIDAI official website or visit an Aadhaar centre for available update services and procedures."],
- ["How can I check my update status?","Use the status-check options available on the UIDAI MyAadhaar portal."],
- ["How can I find an Aadhaar centre?","Use the official Aadhaar centre locator."],
- ["How can I contact UIDAI?","Contact UIDAI through helpline 1947 or help@uidai.gov.in."]
- ]
-},
-gu:{
- navHome:"હોમ",navServices:"સેવાઓ",navFaq:"પ્રશ્નો",navContact:"સંપર્ક",
- changeLanguage:"ભાષા બદલો",heroTitle:"આધાર સહાય અને માર્ગદર્શન",
- heroText:"આધાર સંબંધિત સામાન્ય સેવાઓ અને સમસ્યાઓ માટે ઉપયોગી માહિતી અને સત્તાવાર લિંક્સ મેળવો.",
- explore:"સેવાઓ જુઓ",servicesTitle:"આધાર સેવાઓ",
- servicesSubtitle:"સંબંધિત સત્તાવાર સેવા ખોલવા માટે વિષય પસંદ કરો.",
- helpTitle:"મહત્વપૂર્ણ સાવચેતી",
- helpText:"તમારો આધાર OTP, પાસવર્ડ અથવા ખાનગી માહિતી અજાણ્યા લોકો કે વેબસાઇટ સાથે શેર કરશો નહીં.",
- faqTitle:"વારંવાર પૂછાતા પ્રશ્નો",faqSubtitle:"સામાન્ય પ્રશ્નોના ઉપયોગી જવાબો.",
- aboutTitle:"આધાર સેવા વિશે",
- aboutText:"આધાર સેવા એક સ્વતંત્ર માહિતી વેબસાઇટ છે, જે લોકોને સામાન્ય માર્ગદર્શન અને UIDAI ના સત્તાવાર સંસાધનો શોધવામાં મદદ કરે છે.",
- privacyTitle:"ગોપનીયતા અને સુરક્ષા",
- privacyText:"આ વેબસાઇટ આધાર નંબર, OTP, પાસવર્ડ અથવા ઓળખ દસ્તાવેજો માંગતી નથી. વ્યક્તિગત આધાર સેવાઓ માટે UIDAI ની સત્તાવાર સેવાઓનો ઉપયોગ કરો.",
- disclaimerTitle:"અસ્વીકરણ",
- disclaimerText:"આ એક સ્વતંત્ર માહિતી વેબસાઇટ છે. તેનો UIDAI અથવા ભારત સરકાર સાથે કોઈ સંબંધ કે સમર્થન નથી. સત્તાવાર સેવાઓ સરકારી વેબસાઇટ પર જ ઉપલબ્ધ છે.",
- contactTitle:"સત્તાવાર સંપર્ક માહિતી",
- contactText:"આધાર સંબંધિત સહાય માટે UIDAI ના સત્તાવાર માધ્યમોનો સંપર્ક કરો.",
- officialWebsite:"સત્તાવાર UIDAI વેબસાઇટ",
- footerText:"આધાર સેવા સ્વતંત્ર માહિતી વેબસાઇટ છે, UIDAI ની સત્તાવાર વેબસાઇટ નથી.",
- rights:"સર્વાધિકાર સુરક્ષિત.",
- faqs:[
- ["આધાર અપડેટ કેવી રીતે કરવું?","અપડેટ સેવાઓ અને પ્રક્રિયા માટે UIDAI ની સત્તાવાર વેબસાઇટ અથવા આધાર કેન્દ્રની મુલાકાત લો."],
- ["અપડેટની સ્થિતિ કેવી રીતે તપાસવી?","UIDAI MyAadhaar પોર્ટલ પર ઉપલબ્ધ સ્ટેટસ તપાસ વિકલ્પનો ઉપયોગ કરો."],
- ["આધાર કેન્દ્ર કેવી રીતે શોધવું?","સત્તાવાર આધાર કેન્દ્ર લોકેટરનો ઉપયોગ કરો."],
- ["UIDAI નો સંપર્ક કેવી રીતે કરવો?","UIDAI હેલ્પલાઇન 1947 અથવા help@uidai.gov.in પર સંપર્ક કરો."]
- ]
-},
-mr:{
- navHome:"मुख्यपृष्ठ",navServices:"सेवा",navFaq:"प्रश्नोत्तरे",navContact:"संपर्क",
- changeLanguage:"भाषा बदला",heroTitle:"आधार मदत आणि मार्गदर्शन",
- heroText:"आधारशी संबंधित सामान्य सेवा आणि समस्यांसाठी उपयुक्त माहिती व अधिकृत लिंक मिळवा.",
- explore:"सेवा पहा",servicesTitle:"आधार सेवा",
- servicesSubtitle:"संबंधित अधिकृत सेवा उघडण्यासाठी विषय निवडा.",
- helpTitle:"महत्त्वाची काळजी",
- helpText:"तुमचा आधार OTP, पासवर्ड किंवा वैयक्तिक माहिती अनोळखी व्यक्ती किंवा वेबसाइटसोबत शेअर करू नका.",
- faqTitle:"वारंवार विचारले जाणारे प्रश्न",faqSubtitle:"सामान्य प्रश्नांची उपयुक्त उत्तरे.",
- aboutTitle:"आधार सेवा बद्दल",
- aboutText:"आधार सेवा ही स्वतंत्र माहिती वेबसाइट आहे. लोकांना सामान्य मार्गदर्शन आणि UIDAI ची अधिकृत साधने शोधण्यात मदत करणे हा तिचा उद्देश आहे.",
- privacyTitle:"गोपनीयता आणि सुरक्षा",
- privacyText:"ही वेबसाइट आधार क्रमांक, OTP, पासवर्ड किंवा ओळखपत्रे मागत नाही. वैयक्तिक आधार सेवांसाठी UIDAI च्या अधिकृत सेवांचा वापर करा.",
- disclaimerTitle:"अस्वीकरण",
- disclaimerText:"ही स्वतंत्र माहिती वेबसाइट आहे. तिचा UIDAI किंवा भारत सरकारशी कोणताही संबंध किंवा समर्थन नाही. अधिकृत सेवा सरकारी वेबसाइटवरच उपलब्ध आहेत.",
- contactTitle:"अधिकृत संपर्क माहिती",
- contactText:"आधारशी संबंधित मदतीसाठी UIDAI च्या अधिकृत माध्यमांशी संपर्क साधा.",
- officialWebsite:"अधिकृत UIDAI वेबसाइट",
- footerText:"आधार सेवा ही स्वतंत्र माहिती वेबसाइट आहे; ती UIDAI ची अधिकृत वेबसाइट नाही.",
- rights:"सर्व हक्क राखीव.",
- faqs:[
- ["आधार अपडेट कसे करावे?","अपडेट सेवा आणि प्रक्रियेसाठी UIDAI ची अधिकृत वेबसाइट किंवा आधार केंद्राला भेट द्या."],
- ["अपडेटची स्थिती कशी तपासावी?","UIDAI MyAadhaar पोर्टलवरील स्थिती तपासण्याचा पर्याय वापरा."],
- ["आधार केंद्र कसे शोधावे?","अधिकृत आधार केंद्र लोकेटर वापरा."],
- ["UIDAI शी संपर्क कसा साधावा?","UIDAI हेल्पलाइन 1947 किंवा help@uidai.gov.in वर संपर्क साधा."]
- ]
-},
-bn:{
- navHome:"হোম",navServices:"পরিষেবা",navFaq:"প্রশ্নোত্তর",navContact:"যোগাযোগ",
- changeLanguage:"ভাষা পরিবর্তন",heroTitle:"আধার সহায়তা ও নির্দেশিকা",
- heroText:"আধার সম্পর্কিত সাধারণ পরিষেবা ও সমস্যার জন্য দরকারি তথ্য এবং সরকারি লিঙ্ক খুঁজুন।",
- explore:"পরিষেবা দেখুন",servicesTitle:"আধার পরিষেবা",
- servicesSubtitle:"সংশ্লিষ্ট সরকারি পরিষেবা খুলতে একটি বিষয় বেছে নিন।",
- helpTitle:"গুরুত্বপূর্ণ সতর্কতা",
- helpText:"আপনার আধার OTP, পাসওয়ার্ড বা ব্যক্তিগত তথ্য অপরিচিত ব্যক্তি বা ওয়েবসাইটের সঙ্গে শেয়ার করবেন না।",
- faqTitle:"সাধারণ প্রশ্নোত্তর",faqSubtitle:"সাধারণ প্রশ্নের দরকারি উত্তর।",
- aboutTitle:"আধার সেবা সম্পর্কে",
- aboutText:"আধার সেবা একটি স্বাধীন তথ্যভিত্তিক ওয়েবসাইট। সাধারণ নির্দেশিকা এবং UIDAI-এর সরকারি সংস্থান খুঁজে পেতে দর্শকদের সাহায্য করাই এর উদ্দেশ্য।",
- privacyTitle:"গোপনীয়তা ও নিরাপত্তা",
- privacyText:"এই ওয়েবসাইট আধার নম্বর, OTP, পাসওয়ার্ড বা পরিচয়পত্র জমা দিতে বলে না। ব্যক্তিগত আধার পরিষেবার জন্য UIDAI-এর সরকারি পরিষেবা ব্যবহার করুন।",
- disclaimerTitle:"দায়মুক্তি",
- disclaimerText:"এটি একটি স্বাধীন তথ্য ও সহায়তা ওয়েবসাইট। UIDAI বা ভারত সরকারের সঙ্গে এর কোনো সম্পর্ক বা অনুমোদন নেই। সরকারি পরিষেবা শুধুমাত্র সরকারি ওয়েবসাইটে পাওয়া যায়।",
- contactTitle:"সরকারি যোগাযোগের তথ্য",
- contactText:"আধার সম্পর্কিত সহায়তার জন্য UIDAI-এর সরকারি মাধ্যমে যোগাযোগ করুন।",
- officialWebsite:"UIDAI-এর সরকারি ওয়েবসাইট",
- footerText:"আধার সেবা একটি স্বাধীন তথ্যভিত্তিক ওয়েবসাইট, UIDAI-এর সরকারি ওয়েবসাইট নয়।",
- rights:"সর্বস্বত্ব সংরক্ষিত।",
- faqs:[
- ["আধার আপডেট কীভাবে করব?","আপডেট পরিষেবা ও প্রক্রিয়ার জন্য UIDAI-এর সরকারি ওয়েবসাইট বা আধার কেন্দ্রে যান।"],
- ["আপডেটের অবস্থা কীভাবে দেখব?","UIDAI MyAadhaar পোর্টালের স্ট্যাটাস চেক বিকল্প ব্যবহার করুন।"],
- ["আধার কেন্দ্র কীভাবে খুঁজব?","সরকারি আধার কেন্দ্র লোকেটার ব্যবহার করুন।"],
- ["UIDAI-এর সঙ্গে যোগাযোগ কীভাবে করব?","UIDAI হেল্পলাইন 1947 অথবা help@uidai.gov.in-এ যোগাযোগ করুন।"]
- ]
-},
-ta:{
- navHome:"முகப்பு",navServices:"சேவைகள்",navFaq:"கேள்விகள்",navContact:"தொடர்பு",
- changeLanguage:"மொழியை மாற்று",heroTitle:"ஆதார் உதவி மற்றும் வழிகாட்டுதல்",
- heroText:"ஆதார் தொடர்பான பொதுவான சேவைகள் மற்றும் சிக்கல்களுக்கு பயனுள்ள தகவல்களையும் அதிகாரப்பூர்வ இணைப்புகளையும் காண்க.",
- explore:"சேவைகளைப் பார்க்க",servicesTitle:"ஆதார் சேவைகள்",
- servicesSubtitle:"தொடர்புடைய அதிகாரப்பூர்வ சேவையைத் திறக்க ஒரு தலைப்பைத் தேர்ந்தெடுக்கவும்.",
- helpTitle:"முக்கிய பாதுகாப்பு அறிவுரை",
- helpText:"உங்கள் ஆதார் OTP, கடவுச்சொல் அல்லது தனிப்பட்ட தகவல்களை அறிமுகமில்லாத நபர்கள் அல்லது இணையதளங்களுடன் பகிர வேண்டாம்.",
- faqTitle:"அடிக்கடி கேட்கப்படும் கேள்விகள்",faqSubtitle:"பொதுவான கேள்விகளுக்கான பயனுள்ள பதில்கள்.",
- aboutTitle:"ஆதார் சேவை பற்றி",
- aboutText:"ஆதார் சேவை என்பது பொதுவான வழிகாட்டுதல் மற்றும் UIDAI அதிகாரப்பூர்வ ஆதாரங்களைக் கண்டறிய உதவும் சுயாதீன தகவல் இணையதளமாகும்.",
- privacyTitle:"தனியுரிமை மற்றும் பாதுகாப்பு",
- privacyText:"இந்த இணையதளம் ஆதார் எண், OTP, கடவுச்சொல் அல்லது அடையாள ஆவணங்களைக் கேட்காது. தனிப்பட்ட ஆதார் சேவைகளுக்கு UIDAI அதிகாரப்பூர்வ சேவைகளைப் பயன்படுத்தவும்.",
- disclaimerTitle:"பொறுப்புத் துறப்பு",
- disclaimerText:"இது ஒரு சுயாதீன தகவல் மற்றும் உதவி இணையதளம். UIDAI அல்லது இந்திய அரசுடன் இதற்கு எந்தத் தொடர்பும் ஒப்புதலும் இல்லை. அதிகாரப்பூர்வ சேவைகள் அரசு இணையதளங்களில் மட்டுமே கிடைக்கும்.",
- contactTitle:"அதிகாரப்பூர்வ தொடர்பு விவரங்கள்",
- contactText:"ஆதார் தொடர்பான உதவிக்கு UIDAI அதிகாரப்பூர்வ வழிகளில் தொடர்புகொள்ளவும்.",
- officialWebsite:"UIDAI அதிகாரப்பூர்வ இணையதளம்",
- footerText:"ஆதார் சேவை ஒரு சுயாதீன தகவல் இணையதளம்; இது UIDAI அதிகாரப்பூர்வ இணையதளம் அல்ல.",
- rights:"அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
- faqs:[
- ["ஆதாரை எவ்வாறு புதுப்பிப்பது?","புதுப்பிப்பு சேவைகள் மற்றும் நடைமுறைகளுக்கு UIDAI அதிகாரப்பூர்வ இணையதளம் அல்லது ஆதார் மையத்தைப் பார்க்கவும்."],
- ["புதுப்பிப்பு நிலையை எவ்வாறு பார்ப்பது?","UIDAI MyAadhaar தளத்தில் உள்ள நிலை சரிபார்ப்பு விருப்பத்தைப் பயன்படுத்தவும்."],
- ["ஆதார் மையத்தை எவ்வாறு கண்டறிவது?","அதிகாரப்பூர்வ ஆதார் மைய இருப்பிடக் கருவியைப் பயன்படுத்தவும்."],
- ["UIDAI-ஐ எவ்வாறு தொடர்புகொள்வது?","UIDAI உதவி எண் 1947 அல்லது help@uidai.gov.in மூலம் தொடர்புகொள்ளவும்."]
- ]
-}
-};
-
 let currentLanguage = "en";
 
-function chooseLanguage(lang, button) {
-  const reveal = document.getElementById("reveal");
-  const rect = button.getBoundingClientRect();
-  const x = rect.left + rect.width / 2;
-  const y = rect.top + rect.height / 2;
-
-  reveal.style.setProperty("--x", x + "px");
-  reveal.style.setProperty("--y", y + "px");
-  reveal.classList.remove("active");
-  void reveal.offsetWidth;
-  reveal.classList.add("active");
-
-  setTimeout(() => {
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    document.getElementById("welcome").classList.add("hidden");
-    document.getElementById("site").classList.remove("hidden");
-    renderWebsite();
-    window.scrollTo(0,0);
-  }, 420);
-
-  setTimeout(() => reveal.classList.remove("active"), 1100);
-}
-
-function backToLanguages() {
-  document.getElementById("site").classList.add("hidden");
-  document.getElementById("welcome").classList.remove("hidden");
-  window.scrollTo(0,0);
-}
-
-function renderWebsite() {
-  const t = translations[currentLanguage];
-
-  document.querySelectorAll("[data-t]").forEach(el => {
-    const key = el.getAttribute("data-t");
-    if (t[key]) el.textContent = t[key];
-  });
-
-  const cards = document.getElementById("serviceCards");
-  cards.innerHTML = "";
-
-  services[currentLanguage].forEach(item => {
-    const article = document.createElement("article");
-    article.className = "card";
-
-    const icon = document.createElement("div");
-    icon.className = "card-icon";
-    icon.textContent = item[0];
-
-    const heading = document.createElement("h3");
-    heading.textContent = item[1];
-
-    const description = document.createElement("p");
-    description.textContent = item[2];
-
-    const link = document.createElement("a");
-    link.className = "card-link";
-    link.textContent = item[3];
-    link.href = item[4];
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-
-    article.append(icon,heading,description,link);
-    cards.appendChild(article);
-  });
-
-  const faq = document.getElementById("faqList");
-  faq.innerHTML = "";
-
-  t.faqs.forEach(item => {
-    const details = document.createElement("details");
-    const summary = document.createElement("summary");
-    const answer = document.createElement("p");
-
-    summary.textContent = item[0];
-    answer.textContent = item[1];
-
-    details.append(summary,answer);
-    faq.appendChild(details);
-  });
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+const words = {
+en:{
+home:"Home",problems:"Problems",services:"Services",state:"State Help",faq:"FAQ",
+contact:"Contact",changeLanguage:"Language",mainMenu:"Main Menu",information:"Information",
+officialLinks:"Official Links",about:"About Us",privacy:"Privacy Policy",
+disclaimer:"Disclaimer",suspended:"Suspended / Deactivated Aadhaar",
+heroTitle:"Aadhaar Problems? Find the Right Guidance.",
+heroText:"Understand common Aadhaar problems and learn how to contact official UIDAI support.",
+findHelp:"Find Problem Help",exploreServices:"Explore Services",
+problemTitle:"Aadhaar Problem Help",problemSubtitle:"Choose your problem to understand the next steps.",
+important:"Important:",importantText:"This website provides gen
