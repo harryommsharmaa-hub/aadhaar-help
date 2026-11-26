@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,6 +199,80 @@ nav{display:none}
 .hero h1{font-size:28px}
 .logo{font-size:22px}
 }
+
+/* ASK QUESTION DESIGN */
+.ask-box {
+  width: 100%;
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 24px;
+  border: 2px solid #f2a0aa;
+  border-radius: 18px;
+  background: #fffafa;
+  box-shadow: 0 5px 20px rgba(194,24,91,0.08);
+  box-sizing: border-box;
+}
+
+.ask-box h2 {
+  text-align: center;
+  color: #c2185b;
+  margin: 0 0 22px;
+  font-size: 25px;
+}
+
+.ask-box input,
+.ask-box textarea {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 0 0 16px;
+  border: 1px solid #e5c5ce;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.ask-box textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.ask-box button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #c2185b;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ask-box button:disabled {
+  background: #ead5dc;
+  color: #888888;
+}
+
+#askMessage {
+  text-align: center;
+  margin-top: 14px;
+  color: #237a35;
+}
+.ask-box button.sending,
+.ask-box button.sending:disabled {
+  background: #ead5dc;
+  color: #888888;
+  opacity: 1;
+  cursor: wait;
+}
+
+.ask-box input:disabled,
+.ask-box textarea:disabled {
+  background: #f3f3f3;
+  opacity: 0.8;
+}
 </style>
 </head>
 
@@ -340,6 +413,32 @@ nav{display:none}
 </div>
 
 </div>
+</section>
+
+<section class="container" id="ask-question">
+  <div class="ask-box">
+    <h2>Ask Question</h2>
+
+    <form id="askForm"
+action="https://formsubmit.co/e504fcf8005988e38261a0d702676cc6"
+method="POST">
+      <input type="text" name="name"
+        placeholder="Your Name" required>
+
+      <input type="email" name="email"
+        placeholder="Your Email" required>
+
+      <textarea name="question"
+        placeholder="Write your question here..."
+        required></textarea>
+
+      <button type="submit" id="askButton" disabled>
+        Submit Question
+      </button>
+
+      <p id="askMessage"></p>
+    </>
+  </div>
 </section>
 
 <section class="container" id="problems">
@@ -491,214 +590,4 @@ nav{display:none}
 <a href="#about" onclick="closeMenu()" data-t="about">About Us</a>
 <a href="#privacy" onclick="closeMenu()" data-t="privacy">Privacy Policy</a>
 <a href="#disclaimer" onclick="closeMenu()" data-t="disclaimer">Disclaimer</a>
-<a href="#contact" onclick="closeMenu()" data-t="contact">Contact</a>
-<button class="lang-switch" onclick="backToLanguages()" data-t="changeLang">Change Language</button>
-</div>
-
-<script>
-const translations={
-en:{
-home:"Home",services:"Services",problems:"Aadhaar Problems",faq:"FAQ",contact:"Contact",about:"About Us",privacy:"Privacy Policy",disclaimer:"Disclaimer",
-heroTitle:"Aadhaar Help & Support Portal",heroDesc:"Find useful Aadhaar information and access important UIDAI services from one place.",explore:"Explore Aadhaar Services",changeLang:"Change Language",
-servicesTitle:"Aadhaar Online Services",servicesDesc:"Quick access to important official UIDAI services.",searchPlaceholder:"Search Aadhaar service...",
-s1:"Check Aadhaar Status",p1:"Check the status of your enrolment or update request.",b1:"Check Status",
-s2:"Grievance Status",p2:"Check the status of an Aadhaar complaint.",b2:"Check Grievance",
-s3:"File a Complaint",p3:"Visit the official portal for grievance registration.",b3:"Visit UIDAI",
-s4:"Feedback & Support",p4:"Find official UIDAI grievance support.",b4:"Get Support",
-s5:"Order Aadhaar PVC Card",p5:"Visit the official portal for PVC card services.",b5:"Order PVC",
-s6:"Authentication History",p6:"Access authentication history services.",b6:"Open Service",
-s7:"Verify Aadhaar",p7:"Find the official Aadhaar verification service.",b7:"Verify Aadhaar",
-s8:"Aadhaar Mitra",p8:"Get assistance through official support options.",b8:"Visit UIDAI",
-s9:"Download e-Aadhaar",p9:"Access the official e-Aadhaar download facility.",b9:"Download",
-s10:"Update Aadhaar",p10:"Access available Aadhaar update services.",b10:"Update Aadhaar",
-s11:"Find Aadhaar Centre",p11:"Find enrolment or update centres.",b11:"Find Centre",
-s12:"Lock / Unlock Biometrics",p12:"Access biometric security services.",b12:"Open Service",
-problemTitle:"Aadhaar Problems & Solutions",problemDesc:"Understand common Aadhaar problems and find official support.",
-suspendedTitle:"Suspended or Deactivated Aadhaar",suspended1:"If your Aadhaar is suspended, deactivated or authentication is failing, contact UIDAI through its official support channels.",suspended2:"Only UIDAI can confirm the status and explain the appropriate resolution process.",helpline:"Official UIDAI Helpline:",
-srnTitle:"What is SRN?",srnDesc:"SRN means Service Request Number. It is a reference number associated with certain service requests.",
-urnTitle:"What is URN?",urnDesc:"URN means Update Request Number. It may be provided when an update request is submitted.",
-eidTitle:"What is EID?",eidDesc:"EID means Enrolment ID. It identifies an Aadhaar enrolment request.",
-resolveTitle:"How to Resolve Aadhaar Problems?",step1:"Check your request status using the official UIDAI portal.",step2:"Keep your acknowledgement or reference number available.",step3:"Contact UIDAI helpline 1947 if the issue remains unresolved.",step4:"Visit an authorised Aadhaar centre if UIDAI advises you.",
-warning:"Important Security Notice:",warningDesc:"Never share your Aadhaar number, OTP, password or personal documents on this website.",
-regionalTitle:"UIDAI Regional Offices",regionalSub:"Official Regional Office Directory",regionalDesc:"For the latest regional office addresses and contact details, use the official UIDAI website.",regionalLink:"Official UIDAI Contact & Support",
-faqTitle:"Frequently Asked Questions",q1:"How can I check my Aadhaar status?",a1:"Visit the official UIDAI portal and select the appropriate status service.",q2:"What should I do if my Aadhaar is suspended?",a2:"Contact UIDAI at 1947 or visit an authorised centre.",q3:"How can I check grievance status?",a3:"Use the official UIDAI grievance status facility.",q4:"How can I download e-Aadhaar?",a4:"Use the official UIDAI MyAadhaar portal.",q5:"What is the UIDAI helpline number?",a5:"The official UIDAI toll-free helpline is 1947.",q6:"Where can I find an Aadhaar centre?",a6:"Use UIDAI's official centre locator.",q7:"Can this website check my Aadhaar status?",a7:"No. Actual status checking takes place on UIDAI's official portal.",
-aboutTitle:"About Aadhaar Sevaa",aboutDesc:"Aadhaar Sevaa is an independent informational website created to make Aadhaar information and official links easier to access.",privacyTitle:"Privacy Policy",privacy1:"We do not ask visitors to submit Aadhaar numbers, OTPs or passwords.",privacy2:"External websites have their own privacy policies.",privacy3:"Any future analytics or advertising services will have their own applicable policies.",
-disclaimerTitle:"Disclaimer",disclaimer1:"Aadhaar Sevaa is an independent informational website. It is not affiliated with UIDAI or the Government of India.",disclaimer2:"Aadhaar services are provided through official UIDAI platforms.",disclaimer3:"Always verify important information on the official UIDAI website.",
-contactTitle:"Contact & Official Support",uidaiSupport:"UIDAI Official Support",officialSite:"Official Website:",visitOfficial:"Visit Official UIDAI Website",independent:"Independent informational website. Not affiliated with UIDAI.",menuTitle:"Menu",about:"About",privacy:"Privacy Policy"
-},
-hi:{
-home:"होम",services:"सेवाएँ",problems:"आधार समस्याएँ",faq:"प्रश्न",contact:"संपर्क",about:"हमारे बारे में",privacy:"गोपनीयता नीति",disclaimer:"अस्वीकरण",
-heroTitle:"आधार सहायता पोर्टल",heroDesc:"आधार की जानकारी और UIDAI की महत्वपूर्ण सेवाएँ एक ही जगह पाएँ।",explore:"आधार सेवाएँ देखें",changeLang:"भाषा बदलें",
-servicesTitle:"आधार ऑनलाइन सेवाएँ",servicesDesc:"UIDAI की आधिकारिक सेवाओं तक जल्दी पहुँचें।",searchPlaceholder:"आधार सेवा खोजें...",
-s1:"आधार स्थिति देखें",p1:"आधार आवेदन या अपडेट की स्थिति देखें।",b1:"स्थिति देखें",
-s2:"शिकायत की स्थिति",p2:"आधार शिकायत की स्थिति देखें।",b2:"शिकायत देखें",
-s3:"शिकायत दर्ज करें",p3:"शिकायत दर्ज करने के लिए आधिकारिक पोर्टल जाएँ।",b3:"UIDAI खोलें",
-s4:"सहायता एवं समर्थन",p4:"UIDAI की आधिकारिक सहायता प्राप्त करें।",b4:"सहायता",
-s5:"PVC आधार कार्ड",p5:"PVC कार्ड सेवा के लिए आधिकारिक पोर्टल जाएँ।",b5:"PVC कार्ड",
-s6:"ऑथेंटिकेशन हिस्ट्री",p6:"ऑथेंटिकेशन इतिहास की सेवा देखें।",b6:"सेवा खोलें",
-s7:"आधार सत्यापन",p7:"आधार सत्यापन की आधिकारिक सेवा देखें।",b7:"सत्यापन",
-s8:"आधार मित्र",p8:"आधिकारिक सहायता विकल्पों से मदद पाएँ।",b8:"UIDAI खोलें",
-s9:"ई-आधार डाउनलोड",p9:"आधिकारिक ई-आधार डाउनलोड सेवा खोलें।",b9:"डाउनलोड",
-s10:"आधार अपडेट",p10:"आधार अपडेट की उपलब्ध सेवाएँ देखें।",b10:"अपडेट",
-s11:"आधार केंद्र खोजें",p11:"आधार नामांकन या अपडेट केंद्र खोजें।",b11:"केंद्र खोजें",
-s12:"बायोमेट्रिक लॉक / अनलॉक",p12:"बायोमेट्रिक सुरक्षा सेवाएँ देखें।",b12:"सेवा खोलें",
-problemTitle:"आधार समस्याएँ एवं समाधान",problemDesc:"आम आधार समस्याओं और आधिकारिक सहायता की जानकारी पाएँ।",
-suspendedTitle:"निलंबित या निष्क्रिय आधार",suspended1:"यदि आपका आधार निलंबित, निष्क्रिय है या ऑथेंटिकेशन में समस्या है, तो UIDAI के आधिकारिक सहायता माध्यमों से संपर्क करें।",suspended2:"स्थिति और समाधान की पुष्टि केवल UIDAI कर सकता है।",helpline:"UIDAI हेल्पलाइन:",
-srnTitle:"SRN क्या है?",srnDesc:"SRN यानी Service Request Number, कुछ सेवाओं के लिए दिया जाने वाला संदर्भ नंबर है।",
-urnTitle:"URN क्या है?",urnDesc:"URN यानी Update Request Number, अपडेट अनुरोध के समय दिया जा सकता है।",
-eidTitle:"EID क्या है?",eidDesc:"EID यानी Enrolment ID, आधार नामांकन अनुरोध की पहचान संख्या है।",
-resolveTitle:"आधार समस्या कैसे हल करें?",step1:"आधिकारिक UIDAI पोर्टल पर अनुरोध की स्थिति देखें।",step2:"अपनी रसीद या संदर्भ संख्या संभालकर रखें।",step3:"समस्या बनी रहने पर 1947 पर संपर्क करें।",step4:"UIDAI की सलाह पर अधिकृत आधार केंद्र जाएँ।",
-warning:"महत्वपूर्ण सुरक्षा सूचना:",warningDesc:"इस वेबसाइट पर आधार नंबर, OTP, पासवर्ड या निजी दस्तावेज साझा न करें।",
-regionalTitle:"UIDAI क्षेत्रीय कार्यालय",regionalSub:"आधिकारिक क्षेत्रीय कार्यालय",regionalDesc:"कार्यालय का पता और संपर्क विवरण UIDAI की आधिकारिक वेबसाइट से देखें।",regionalLink:"UIDAI संपर्क एवं सहायता",
-faqTitle:"अक्सर पूछे जाने वाले प्रश्न",q1:"आधार स्थिति कैसे देखें?",a1:"UIDAI के आधिकारिक पोर्टल पर जाकर स्थिति सेवा चुनें।",q2:"आधार निलंबित हो तो क्या करें?",a2:"1947 पर संपर्क करें या अधिकृत केंद्र जाएँ।",q3:"शिकायत की स्थिति कैसे देखें?",a3:"UIDAI की शिकायत स्थिति सेवा का उपयोग करें।",q4:"ई-आधार कैसे डाउनलोड करें?",a4:"UIDAI MyAadhaar पोर्टल का उपयोग करें।",q5:"UIDAI हेल्पलाइन क्या है?",a5:"UIDAI की टोल फ्री हेल्पलाइन 1947 है।",q6:"आधार केंद्र कहाँ खोजें?",a6:"UIDAI के आधिकारिक केंद्र खोज विकल्प का उपयोग करें।",q7:"क्या यह वेबसाइट आधार स्थिति जाँच सकती है?",a7:"नहीं। वास्तविक स्थिति UIDAI के पोर्टल पर जाँची जाती है।",
-aboutTitle:"आधार सेवा के बारे में",aboutDesc:"आधार सेवा एक स्वतंत्र सूचना वेबसाइट है जो आधार जानकारी और आधिकारिक लिंक आसानी से उपलब्ध कराने के लिए बनाई गई है।",
-privacyTitle:"गोपनीयता नीति",privacy1:"हम आधार नंबर, OTP या पासवर्ड जमा करने को नहीं कहते।",privacy2:"बाहरी वेबसाइटों की अपनी गोपनीयता नीति होती है।",privacy3:"भविष्य की विश्लेषण या विज्ञापन सेवाओं की अपनी नीतियाँ होंगी।",
-disclaimerTitle:"अस्वीकरण",disclaimer1:"आधार सेवा एक स्वतंत्र वेबसाइट है। इसका UIDAI या भारत सरकार से कोई संबंध नहीं है।",disclaimer2:"आधार सेवाएँ आधिकारिक UIDAI प्लेटफॉर्म पर उपलब्ध हैं।",disclaimer3:"महत्वपूर्ण जानकारी UIDAI की वेबसाइट पर सत्यापित करें।",
-contactTitle:"संपर्क एवं आधिकारिक सहायता",uidaiSupport:"UIDAI आधिकारिक सहायता",officialSite:"आधिकारिक वेबसाइट:",visitOfficial:"UIDAI वेबसाइट खोलें",independent:"स्वतंत्र वेबसाइट। UIDAI से संबद्ध नहीं।",menuTitle:"मेनू"
-},
-gu:{
-home:"હોમ",services:"સેવાઓ",problems:"આધાર સમસ્યાઓ",faq:"પ્રશ્નો",contact:"સંપર્ક",about:"અમારા વિશે",privacy:"ગોપનીયતા",disclaimer:"અસ્વીકરણ",
-heroTitle:"આધાર સહાય પોર્ટલ",heroDesc:"આધાર માહિતી અને UIDAI સેવાઓ એક જ જગ્યાએ મેળવો.",explore:"આધાર સેવાઓ",changeLang:"ભાષા બદલો",
-servicesTitle:"આધાર ઓનલાઇન સેવાઓ",servicesDesc:"UIDAI સેવાઓની ઝડપી ઍક્સેસ.",searchPlaceholder:"આધાર સેવા શોધો...",
-s1:"આધાર સ્થિતિ",p1:"આધાર અરજી અથવા અપડેટની સ્થિતિ તપાસો.",b1:"સ્થિતિ તપાસો",s2:"ફરિયાદ સ્થિતિ",p2:"ફરિયાદની સ્થિતિ તપાસો.",b2:"ફરિયાદ તપાસો",
-s3:"ફરિયાદ નોંધાવો",p3:"ફરિયાદ નોંધાવવા સત્તાવાર પોર્ટલ ખોલો.",b3:"UIDAI",s4:"સહાય",p4:"UIDAI સહાય મેળવો.",b4:"સહાય",
-s5:"PVC આધાર કાર્ડ",p5:"PVC કાર્ડ સેવાઓ.",b5:"PVC",s6:"Authentication History",p6:"Authentication history સેવાઓ.",b6:"ખોલો",
-s7:"આધાર ચકાસણી",p7:"સત્તાવાર ચકાસણી સેવા.",b7:"ચકાસો",s8:"આધાર મિત્ર",p8:"સત્તાવાર સહાય.",b8:"UIDAI",
-s9:"ઈ-આધાર",p9:"ઈ-આધાર ડાઉનલોડ.",b9:"ડાઉનલોડ",s10:"આધાર અપડેટ",p10:"આધાર અપડેટ સેવાઓ.",b10:"અપડેટ",
-s11:"આધાર કેન્દ્ર",p11:"આધાર કેન્દ્ર શોધો.",b11:"કેન્દ્ર",s12:"બાયોમેટ્રિક લોક",p12:"બાયોમેટ્રિક સુરક્ષા સેવાઓ.",b12:"ખોલો",
-problemTitle:"આધાર સમસ્યાઓ અને ઉકેલ",problemDesc:"સામાન્ય સમસ્યાઓ માટે સત્તાવાર સહાય મેળવો.",
-suspendedTitle:"Suspended અથવા Deactivated Aadhaar",suspended1:"આધાર બંધ અથવા authentication સમસ્યા હોય તો UIDAIનો સંપર્ક કરો.",suspended2:"સ્થિતિની પુષ્ટિ UIDAI જ કરી શકે છે.",helpline:"UIDAI હેલ્પલાઇન:",
-srnTitle:"SRN શું છે?",srnDesc:"SRN એટલે Service Request Number.",urnTitle:"URN શું છે?",urnDesc:"URN એટલે Update Request Number.",eidTitle:"EID શું છે?",eidDesc:"EID એટલે Enrolment ID.",
-resolveTitle:"સમસ્યા કેવી રીતે ઉકેલવી?",step1:"UIDAI પોર્ટલ પર સ્થિતિ તપાસો.",step2:"સંદર્ભ નંબર રાખો.",step3:"1947 પર સંપર્ક કરો.",step4:"સલાહ મળે તો અધિકૃત કેન્દ્ર જાઓ.",
-warning:"સુરક્ષા સૂચના:",warningDesc:"આ વેબસાઇટ પર OTP અથવા આધાર વિગતો શેર ન કરો.",
-regionalTitle:"UIDAI પ્રાદેશિક કચેરીઓ",regionalSub:"સત્તાવાર કચેરી માહિતી",regionalDesc:"સત્તાવાર વેબસાઇટ પર માહિતી તપાસો.",regionalLink:"UIDAI સંપર્ક",
-faqTitle:"વારંવાર પૂછાતા પ્રશ્નો",q1:"આધાર સ્થિતિ કેવી રીતે તપાસવી?",a1:"UIDAI પોર્ટલ પર તપાસો.",q2:"આધાર બંધ હોય તો?",a2:"1947 પર સંપર્ક કરો.",q3:"ફરિયાદ સ્થિતિ?",a3:"UIDAI ફરિયાદ સેવા વાપરો.",q4:"ઈ-આધાર કેવી રીતે?",a4:"MyAadhaar પોર્ટલ વાપરો.",q5:"હેલ્પલાઇન?",a5:"1947.",q6:"આધાર કેન્દ્ર?",a6:"સત્તાવાર કેન્દ્ર શોધો.",q7:"શું આ વેબસાઇટ સ્થિતિ તપાસે છે?",a7:"ના, UIDAI પોર્ટલ પર તપાસો.",
-aboutTitle:"આધાર સેવા વિશે",aboutDesc:"આધાર સેવા સ્વતંત્ર માહિતી વેબસાઇટ છે.",privacyTitle:"ગોપનીયતા",privacy1:"અમે OTP અથવા આધાર વિગતો માંગતા નથી.",privacy2:"બાહ્ય વેબસાઇટની પોતાની નીતિ હોય છે.",privacy3:"ભવિષ્યની સેવાઓની નીતિઓ અલગ હશે.",
-disclaimerTitle:"અસ્વીકરણ",disclaimer1:"આ વેબસાઇટ UIDAI સાથે જોડાયેલી નથી.",disclaimer2:"સેવાઓ UIDAI દ્વારા પૂરી પાડવામાં આવે છે.",disclaimer3:"સત્તાવાર માહિતી UIDAI પર તપાસો.",
-contactTitle:"સંપર્ક",uidaiSupport:"UIDAI સહાય",officialSite:"સત્તાવાર વેબસાઇટ:",visitOfficial:"UIDAI ખોલો",independent:"સ્વતંત્ર વેબસાઇટ.",menuTitle:"મેનૂ"
-},
-mr:{
-home:"मुख्यपृष्ठ",services:"सेवा",problems:"आधार समस्या",faq:"प्रश्न",contact:"संपर्क",about:"आमच्याबद्दल",privacy:"गोपनीयता",disclaimer:"अस्वीकरण",
-heroTitle:"आधार मदत पोर्टल",heroDesc:"आधार माहिती आणि UIDAI सेवा एकाच ठिकाणी.",explore:"आधार सेवा",changeLang:"भाषा बदला",
-servicesTitle:"आधार ऑनलाइन सेवा",servicesDesc:"UIDAI सेवांमध्ये जलद प्रवेश.",searchPlaceholder:"आधार सेवा शोधा...",
-s1:"आधार स्थिती",p1:"आधार अर्ज किंवा अपडेट स्थिती तपासा.",b1:"स्थिती",s2:"तक्रार स्थिती",p2:"तक्रारीची स्थिती तपासा.",b2:"तक्रार",
-s3:"तक्रार नोंदवा",p3:"अधिकृत पोर्टलवर तक्रार नोंदवा.",b3:"UIDAI",s4:"मदत",p4:"UIDAI मदत मिळवा.",b4:"मदत",
-s5:"PVC कार्ड",p5:"PVC कार्ड सेवा.",b5:"PVC",s6:"Authentication History",p6:"Authentication History सेवा.",b6:"उघडा",
-s7:"आधार पडताळणी",p7:"अधिकृत पडताळणी सेवा.",b7:"पडताळणी",s8:"आधार मित्र",p8:"अधिकृत मदत.",b8:"UIDAI",
-s9:"ई-आधार डाउनलोड",p9:"ई-आधार डाउनलोड सेवा.",b9:"डाउनलोड",s10:"आधार अपडेट",p10:"आधार अपडेट सेवा.",b10:"अपडेट",
-s11:"आधार केंद्र",p11:"आधार केंद्र शोधा.",b11:"केंद्र",s12:"बायोमेट्रिक लॉक",p12:"बायोमेट्रिक सुरक्षा सेवा.",b12:"उघडा",
-problemTitle:"आधार समस्या आणि उपाय",problemDesc:"सामान्य आधार समस्यांसाठी अधिकृत मदत मिळवा.",
-suspendedTitle:"Suspended किंवा Deactivated Aadhaar",suspended1:"आधार बंद किंवा authentication समस्या असल्यास UIDAI शी संपर्क साधा.",suspended2:"स्थितीची पुष्टी UIDAI करू शकते.",helpline:"UIDAI हेल्पलाइन:",
-srnTitle:"SRN म्हणजे काय?",srnDesc:"SRN म्हणजे Service Request Number.",urnTitle:"URN म्हणजे काय?",urnDesc:"URN म्हणजे Update Request Number.",eidTitle:"EID म्हणजे काय?",eidDesc:"EID म्हणजे Enrolment ID.",
-resolveTitle:"आधार समस्या कशी सोडवावी?",step1:"UIDAI पोर्टलवर स्थिती तपासा.",step2:"संदर्भ क्रमांक जपून ठेवा.",step3:"1947 वर संपर्क करा.",step4:"सल्ला मिळाल्यास अधिकृत केंद्राला भेट द्या.",
-warning:"सुरक्षा सूचना:",warningDesc:"या वेबसाइटवर OTP किंवा आधार माहिती शेअर करू नका.",
-regionalTitle:"UIDAI प्रादेशिक कार्यालये",regionalSub:"अधिकृत कार्यालय माहिती",regionalDesc:"अधिकृत वेबसाइटवर कार्यालय माहिती तपासा.",regionalLink:"UIDAI संपर्क",
-faqTitle:"वारंवार विचारले जाणारे प्रश्न",q1:"आधार स्थिती कशी तपासावी?",a1:"UIDAI पोर्टलवर तपासा.",q2:"आधार बंद असल्यास?",a2:"1947 वर संपर्क करा.",q3:"तक्रार स्थिती?",a3:"UIDAI तक्रार सेवा वापरा.",q4:"ई-आधार कसा डाउनलोड करावा?",a4:"MyAadhaar वापरा.",q5:"हेल्पलाइन?",a5:"1947.",q6:"आधार केंद्र?",a6:"अधिकृत केंद्र शोधा.",q7:"ही वेबसाइट स्थिती तपासते?",a7:"नाही. UIDAI पोर्टलवर तपासा.",
-aboutTitle:"आधार सेवा बद्दल",aboutDesc:"आधार सेवा ही स्वतंत्र माहिती वेबसाइट आहे.",privacyTitle:"गोपनीयता",privacy1:"आम्ही OTP किंवा आधार माहिती मागत नाही.",privacy2:"बाह्य वेबसाइटची स्वतंत्र गोपनीयता धोरणे आहेत.",privacy3:"भविष्यातील सेवांची धोरणे वेगळी असतील.",
-disclaimerTitle:"अस्वीकरण",disclaimer1:"ही वेबसाइट UIDAI शी संलग्न नाही.",disclaimer2:"आधार सेवा UIDAI मार्फत उपलब्ध आहेत.",disclaimer3:"अधिकृत माहिती UIDAI वर तपासा.",
-contactTitle:"संपर्क",uidaiSupport:"UIDAI मदत",officialSite:"अधिकृत वेबसाइट:",visitOfficial:"UIDAI वेबसाइट",independent:"स्वतंत्र माहिती वेबसाइट.",menuTitle:"मेनू"
-},
-bn:{
-home:"হোম",services:"পরিষেবা",problems:"আধার সমস্যা",faq:"প্রশ্ন",contact:"যোগাযোগ",about:"আমাদের সম্পর্কে",privacy:"গোপনীয়তা",disclaimer:"দাবিত্যাগ",
-heroTitle:"আধার সহায়তা পোর্টাল",heroDesc:"আধার তথ্য এবং UIDAI পরিষেবা এক জায়গায় পান।",explore:"আধার পরিষেবা",changeLang:"ভাষা পরিবর্তন",
-servicesTitle:"আধার অনলাইন পরিষেবা",servicesDesc:"UIDAI পরিষেবায় দ্রুত প্রবেশ।",searchPlaceholder:"আধার পরিষেবা খুঁজুন...",
-s1:"আধার স্ট্যাটাস",p1:"আধার আবেদন বা আপডেটের স্ট্যাটাস দেখুন।",b1:"স্ট্যাটাস",s2:"অভিযোগ স্ট্যাটাস",p2:"অভিযোগের স্ট্যাটাস দেখুন।",b2:"অভিযোগ",
-s3:"অভিযোগ জমা",p3:"অফিসিয়াল পোর্টালে অভিযোগ জমা দিন।",b3:"UIDAI",s4:"সহায়তা",p4:"UIDAI সহায়তা পান।",b4:"সহায়তা",
-s5:"PVC কার্ড",p5:"PVC কার্ড পরিষেবা।",b5:"PVC",s6:"Authentication History",p6:"Authentication History পরিষেবা।",b6:"খুলুন",
-s7:"আধার যাচাই",p7:"অফিসিয়াল যাচাই পরিষেবা।",b7:"যাচাই",s8:"আধার মিত্র",p8:"অফিসিয়াল সহায়তা।",b8:"UIDAI",
-s9:"ই-আধার ডাউনলোড",p9:"ই-আধার ডাউনলোড পরিষেবা।",b9:"ডাউনলোড",s10:"আধার আপডেট",p10:"আধার আপডেট পরিষেবা।",b10:"আপডেট",
-s11:"আধার কেন্দ্র",p11:"আধার কেন্দ্র খুঁজুন।",b11:"কেন্দ্র",s12:"বায়োমেট্রিক লক",p12:"বায়োমেট্রিক নিরাপত্তা পরিষেবা।",b12:"খুলুন",
-problemTitle:"আধার সমস্যা ও সমাধান",problemDesc:"সাধারণ সমস্যার জন্য অফিসিয়াল সহায়তা পান।",
-suspendedTitle:"Suspended বা Deactivated Aadhaar",suspended1:"আধার বন্ধ বা authentication সমস্যা হলে UIDAI-এর সঙ্গে যোগাযোগ করুন।",suspended2:"স্ট্যাটাস UIDAI নিশ্চিত করতে পারে।",helpline:"UIDAI হেল্পলাইন:",
-srnTitle:"SRN কী?",srnDesc:"SRN হল Service Request Number.",urnTitle:"URN কী?",urnDesc:"URN হল Update Request Number.",eidTitle:"EID কী?",eidDesc:"EID হল Enrolment ID.",
-resolveTitle:"আধার সমস্যা কীভাবে সমাধান করবেন?",step1:"UIDAI পোর্টালে স্ট্যাটাস দেখুন।",step2:"রেফারেন্স নম্বর রাখুন।",step3:"1947 নম্বরে যোগাযোগ করুন।",step4:"পরামর্শ পেলে অনুমোদিত কেন্দ্রে যান।",
-warning:"নিরাপত্তা বিজ্ঞপ্তি:",warningDesc:"এই ওয়েবসাইটে OTP বা আধার তথ্য শেয়ার করবেন না।",
-regionalTitle:"UIDAI আঞ্চলিক অফিস",regionalSub:"অফিসিয়াল অফিস তথ্য",regionalDesc:"অফিসিয়াল ওয়েবসাইটে তথ্য দেখুন।",regionalLink:"UIDAI যোগাযোগ",
-faqTitle:"সাধারণ প্রশ্ন",q1:"আধার স্ট্যাটাস কীভাবে দেখব?",a1:"UIDAI পোর্টালে দেখুন।",q2:"আধার বন্ধ হলে?",a2:"1947 নম্বরে যোগাযোগ করুন।",q3:"অভিযোগ স্ট্যাটাস?",a3:"UIDAI অভিযোগ পরিষেবা ব্যবহার করুন।",q4:"ই-আধার কীভাবে?",a4:"MyAadhaar ব্যবহার করুন।",q5:"হেল্পলাইন?",a5:"1947.",q6:"আধার কেন্দ্র?",a6:"অফিসিয়াল কেন্দ্র খুঁজুন।",q7:"এই ওয়েবসাইট স্ট্যাটাস দেখে?",a7:"না, UIDAI পোর্টালে দেখুন।",
-aboutTitle:"আধার সেবা সম্পর্কে",aboutDesc:"আধার সেবা একটি স্বাধীন তথ্য ওয়েবসাইট।",privacyTitle:"গোপনীয়তা",privacy1:"আমরা OTP বা আধার তথ্য চাই না।",privacy2:"বাহ্যিক ওয়েবসাইটের নিজস্ব নীতি রয়েছে।",privacy3:"ভবিষ্যতের পরিষেবার নিজস্ব নীতি থাকবে।",
-disclaimerTitle:"দাবিত্যাগ",disclaimer1:"এই ওয়েবসাইট UIDAI-এর সঙ্গে যুক্ত নয়।",disclaimer2:"আধার পরিষেবা UIDAI-এর মাধ্যমে দেওয়া হয়।",disclaimer3:"UIDAI ওয়েবসাইটে তথ্য যাচাই করুন।",
-contactTitle:"যোগাযোগ",uidaiSupport:"UIDAI সহায়তা",officialSite:"অফিসিয়াল ওয়েবসাইট:",visitOfficial:"UIDAI খুলুন",independent:"স্বাধীন তথ্য ওয়েবসাইট।",menuTitle:"মেনু"
-},
-ta:{
-home:"முகப்பு",services:"சேவைகள்",problems:"ஆதார் சிக்கல்கள்",faq:"கேள்விகள்",contact:"தொடர்பு",about:"எங்களை பற்றி",privacy:"தனியுரிமை",disclaimer:"மறுப்பு",
-heroTitle:"ஆதார் உதவி தளம்",heroDesc:"ஆதார் தகவல் மற்றும் UIDAI சேவைகளை ஒரே இடத்தில் பெறுங்கள்.",explore:"ஆதார் சேவைகள்",changeLang:"மொழியை மாற்றவும்",
-servicesTitle:"ஆதார் ஆன்லைன் சேவைகள்",servicesDesc:"UIDAI சேவைகளுக்கு விரைவான அணுகல்.",searchPlaceholder:"ஆதார் சேவையைத் தேடுங்கள்...",
-s1:"ஆதார் நிலை",p1:"ஆதார் விண்ணப்பம் அல்லது புதுப்பிப்பு நிலையைப் பார்க்கவும்.",b1:"நிலை",s2:"புகார் நிலை",p2:"புகார் நிலையைப் பார்க்கவும்.",b2:"புகார்",
-s3:"புகார் பதிவு",p3:"அதிகாரப்பூர்வ தளத்தில் புகாரைப் பதிவு செய்யவும்.",b3:"UIDAI",s4:"உதவி",p4:"UIDAI உதவி பெறவும்.",b4:"உதவி",
-s5:"PVC அட்டை",p5:"PVC அட்டை சேவைகள்.",b5:"PVC",s6:"Authentication History",p6:"Authentication History சேவைகள்.",b6:"திறக்கவும்",
-s7:"ஆதார் சரிபார்ப்பு",p7:"அதிகாரப்பூர்வ சரிபார்ப்பு சேவை.",b7:"சரிபார்க்கவும்",s8:"ஆதார் மித்ரா",p8:"அதிகாரப்பூர்வ உதவி.",b8:"UIDAI",
-s9:"இ-ஆதார் பதிவிறக்கம்",p9:"இ-ஆதார் பதிவிறக்கம்.",b9:"பதிவிறக்கம்",s10:"ஆதார் புதுப்பிப்பு",p10:"ஆதார் புதுப்பிப்பு சேவைகள்.",b10:"புதுப்பிக்கவும்",
-s11:"ஆதார் மையம்",p11:"ஆதார் மையத்தைக் கண்டறியவும்.",b11:"மையம்",s12:"பயோமெட்ரிக் பூட்டு",p12:"பயோமெட்ரிக் பாதுகாப்பு சேவைகள்.",b12:"திறக்கவும்",
-problemTitle:"ஆதார் சிக்கல்கள் மற்றும் தீர்வுகள்",problemDesc:"பொதுவான சிக்கல்களுக்கு அதிகாரப்பூர்வ உதவி பெறவும்.",
-suspendedTitle:"Suspended அல்லது Deactivated Aadhaar",suspended1:"ஆதார் முடக்கப்பட்டிருந்தால் அல்லது authentication சிக்கல் இருந்தால் UIDAI-ஐ தொடர்பு கொள்ளவும்.",suspended2:"நிலையை UIDAI மட்டுமே உறுதிப்படுத்த முடியும்.",helpline:"UIDAI உதவி எண்:",
-srnTitle:"SRN என்றால் என்ன?",srnDesc:"SRN என்பது Service Request Number.",urnTitle:"URN என்றால் என்ன?",urnDesc:"URN என்பது Update Request Number.",eidTitle:"EID என்றால் என்ன?",eidDesc:"EID என்பது Enrolment ID.",
-resolveTitle:"ஆதார் சிக்கல்களைத் தீர்ப்பது எப்படி?",step1:"UIDAI தளத்தில் நிலையைச் சரிபார்க்கவும்.",step2:"குறிப்பு எண்ணை வைத்திருக்கவும்.",step3:"1947 ஐ தொடர்பு கொள்ளவும்.",step4:"அறிவுறுத்தப்பட்டால் அங்கீகரிக்கப்பட்ட மையத்திற்குச் செல்லவும்.",
-warning:"பாதுகாப்பு அறிவிப்பு:",warningDesc:"இந்த இணையதளத்தில் OTP அல்லது ஆதார் தகவல்களைப் பகிர வேண்டாம்.",
-regionalTitle:"UIDAI பிராந்திய அலுவலகங்கள்",regionalSub:"அதிகாரப்பூர்வ அலுவலக தகவல்",regionalDesc:"அதிகாரப்பூர்வ இணையதளத்தில் விவரங்களைப் பார்க்கவும்.",regionalLink:"UIDAI தொடர்பு",
-faqTitle:"அடிக்கடி கேட்கப்படும் கேள்விகள்",q1:"ஆதார் நிலையை எப்படி பார்க்கலாம்?",a1:"UIDAI தளத்தில் பார்க்கவும்.",q2:"ஆதார் முடக்கப்பட்டால்?",a2:"1947 ஐ தொடர்பு கொள்ளவும்.",q3:"புகார் நிலை?",a3:"UIDAI புகார் சேவையைப் பயன்படுத்தவும்.",q4:"இ-ஆதார் எப்படி?",a4:"MyAadhaar தளத்தைப் பயன்படுத்தவும்.",q5:"உதவி எண்?",a5:"1947.",q6:"ஆதார் மையம்?",a6:"அதிகாரப்பூர்வ மையத்தைத் தேடவும்.",q7:"இந்த தளம் நிலையை சரிபார்க்குமா?",a7:"இல்லை. UIDAI தளத்தில் சரிபார்க்கவும்.",
-aboutTitle:"ஆதார் சேவை பற்றி",aboutDesc:"ஆதார் சேவை ஒரு சுயாதீன தகவல் இணையதளம்.",privacyTitle:"தனியுரிமை",privacy1:"OTP அல்லது ஆதார் தகவல்களை நாங்கள் கேட்பதில்லை.",privacy2:"வெளிப்புற தளங்களுக்கு தனியுரிமை கொள்கைகள் உள்ளன.",privacy3:"எதிர்கால சேவைகளுக்கு தனி கொள்கைகள் இருக்கும்.",
-disclaimerTitle:"மறுப்பு",disclaimer1:"இந்த இணையதளம் UIDAI உடன் தொடர்புடையது அல்ல.",disclaimer2:"ஆதார் சேவைகள் UIDAI தளங்களில் வழங்கப்படுகின்றன.",disclaimer3:"UIDAI இணையதளத்தில் தகவல்களை சரிபார்க்கவும்.",
-contactTitle:"தொடர்பு",uidaiSupport:"UIDAI உதவி",officialSite:"அதிகாரப்பூர்வ இணையதளம்:",visitOfficial:"UIDAI இணையதளம்",independent:"சுயாதீன தகவல் இணையதளம்.",menuTitle:"பட்டியல்"
-}
-};
-
-let currentLanguage="en";
-
-function chooseLanguage(lang,button){
-currentLanguage=lang;
-const reveal=document.getElementById("reveal");
-const rect=button.getBoundingClientRect();
-reveal.style.left=(rect.left+rect.width/2)+"px";
-reveal.style.top=(rect.top+rect.height/2)+"px";
-reveal.classList.remove("animate");
-void reveal.offsetWidth;
-reveal.classList.add("animate");
-
-setTimeout(()=>{
-document.getElementById("welcome").style.display="none";
-document.getElementById("website").style.display="block";
-document.getElementById("reveal").classList.remove("animate");
-renderLanguage();
-window.scrollTo(0,0);
-},650);
-}
-
-function renderLanguage(){
-const words=translations[currentLanguage]||translations.en;
-document.querySelectorAll("[data-t]").forEach(el=>{
-const key=el.getAttribute("data-t");
-if(words[key])el.textContent=words[key];
-});
-document.querySelectorAll("[data-placeholder]").forEach(el=>{
-const key=el.getAttribute("data-placeholder");
-if(words[key])el.placeholder=words[key];
-});
-document.documentElement.lang=currentLanguage;
-}
-
-function backToLanguages(){
-document.getElementById("website").style.display="none";
-document.getElementById("welcome").style.display="flex";
-closeMenu();
-window.scrollTo(0,0);
-}
-
-function searchServices(){
-const input=document.getElementById("serviceSearch");
-const filter=input.value.toLowerCase();
-document.querySelectorAll(".service-card").forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(filter)?"":"none";
-});
-}
-
-function openMenu(){
-document.getElementById("sidePanel").classList.add("open");
-document.getElementById("overlay").classList.add("show");
-}
-function closeMenu(){
-document.getElementById("sidePanel").classList.remove("open");
-document.getElementById("overlay").classList.remove("show");
-}
-</script>
-</body>
-</html>
+<a href="#contact" onclick="closeMe
